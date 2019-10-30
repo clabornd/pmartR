@@ -204,7 +204,7 @@ imd_anova <- function(omicsData, comparisons = NULL, test_method, pval_adjust = 
     #Replace the NA counts with the correct counts
     Full_results[msng_cnts,grep("Count",colnames(Full_results))] <- new_cnts$Results[,grep("Count",colnames(new_cnts$Results))]
   }
-  
+
   ##I added this catch for some reason, but I don't know why and it stops some perfectly fine code
   #if(nrow(Full_results)>max(nrow(all_gtest),nrow(all_anova))){
   #  stop("Combining g-test and ANOVA results failed.")
