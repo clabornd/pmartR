@@ -196,6 +196,7 @@ applyFilt.cvFilt <- function(filter_object, omicsData, cv_threshold = 150){
 
     # determine which peptides have a CV greater than the threshold #
     p.ids = which(filter_object$CV_pooled > cv_threshold)
+    p.names = filter_object[p.ids, edata_cname]
   
     # return peptide names to be filtered #
     if(length(p.ids) > 0){p_filt = as.character(filter_object[p.ids,1])}else{p_filt = NULL}
@@ -241,7 +242,7 @@ applyFilt.cvFilt <- function(filter_object, omicsData, cv_threshold = 150){
     attr(results, "filters")$cvFilt <- list(report_text = "", threshold = c(), filtered = c())
     attr(results, "filters")$cvFilt$report_text <- paste("A coefficient of variation (CV) filter was applied to the data, removing ", edata_cname, "s ", "with a CV greater than ", cv_threshold, ". A total of ", length(p.ids), " ", edata_cname, "s were filtered out of the dataset by this filter.", sep="")
     attr(results, "filters")$cvFilt$threshold <- cv_threshold
-    attr(results, "filters")$cvFilt$filtered <- p.ids
+    attr(results, "filters")$cvFilt$filtered <- p.names
 
   }
 
