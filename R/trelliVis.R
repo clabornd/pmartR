@@ -3601,6 +3601,7 @@ if(!is.null(omicsData) || !is.null(omicsStats)){
                       
                         trelliscopejs::trelliscope(display2, as.character(name), nrow = 1, ncol = 2,
                                                    self_contained = TRUE, 
+                                                   path = as.character(trelli_path_out),
                                                    group = grp,
                                                    thumb = TRUE, state = list(
                                                      sort = list(trelliscopejs::sort_spec(names(display2[1]), dir = "desc")), 
@@ -3810,6 +3811,7 @@ if(!is.null(omicsData) || !is.null(omicsStats)){
           out <- nest_plot_cog %>%
             trelliscopejs::trelliscope(name = as.character(names), nrow = 1, ncol = 2,
                                        self_contained = TRUE, 
+                                       path = as.character(trelli_path_out),
                                        thumb = TRUE,
                                        state = list(
                                          sort = list(trelliscopejs::sort_spec(names(nest_plot_cog[1]), dir = "desc")), 
@@ -3893,6 +3895,7 @@ if(!is.null(omicsData) || !is.null(omicsStats)){
               out <- nest_plot_cog %>%
                 trelliscopejs::trelliscope(name = as.character(trelli_name[length(trelli_name)]), nrow = 1, ncol = 2,
                                            self_contained = TRUE, 
+                                           path = as.character(trelli_path_out),
                                            thumb = TRUE,
                                            state = list(
                                              sort = list(trelliscopejs::sort_spec(names(nest_plot_cog[1]), dir = "desc")), 
@@ -3961,6 +3964,7 @@ if(!is.null(omicsData) || !is.null(omicsStats)){
           out <- nest_plot_cog %>%
             trelliscopejs::trelliscope(name = as.character(trelli_name), nrow = 1, ncol = 2,
                                        self_contained = TRUE, 
+                                       path = as.character(trelli_path_out), 
                                        thumb = TRUE,
                                        state = list(
                                          sort = list(trelliscopejs::sort_spec(names(nest_plot_cog[1]), dir = "desc")), 
