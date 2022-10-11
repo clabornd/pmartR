@@ -40,6 +40,6 @@ Suggests:
     rmarkdown,
     testthat
 Remotes:
-    hafen/trelliscopejs
+    github::hafen/trelliscopejs
 RoxygenNote: 7.2.1
 Encoding: UTF-8
