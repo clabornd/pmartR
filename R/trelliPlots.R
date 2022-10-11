@@ -1,5 +1,8 @@
-# This function runs necessary checks for pmartR trelliscope plotting functions. 
-# It cleans any parameters (rounding numerics to integers, etc.), and returns them.
+#' Validate arguments for trelliscope displays
+#' 
+#' This function runs necessary checks for pmartR trelliscope plotting functions. 
+#' It cleans any parameters (rounding numerics to integers, etc.), and returns them.
+#' 
 #' @param trelliData The trelliData object the user passed to a plotting function.
 #' @param trelliCheck Check if the object type is supposed to be "omics", "statRes" or put a vector of both.
 #' @param cognostics A vector of the user provided cognstics. 

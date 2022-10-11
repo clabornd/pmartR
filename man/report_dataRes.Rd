@@ -23,7 +23,7 @@ This function takes in an object of class 'dataRes' and returns a data frame dis
 If the 'by' attribute of the input 'statRes' object is set to 'sample', then its groupvar attribute must be set to NULL
 }
 \examples{
-dontrun{
+\dontrun{
 library(pmartRdata)
 data(lipid_object)
 lipid_object2 <- edata_transform(omicsData = lipid_object, data_scale = "log2")

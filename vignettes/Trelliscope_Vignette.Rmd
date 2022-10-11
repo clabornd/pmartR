@@ -10,7 +10,7 @@ output:
     self_contained: yes
 bibliography: bibliography.bib
 vignette: >
-  %\VignetteIndexEntry{pmartR-peptide} 
+  %\VignetteIndexEntry{pmartR-trelliscope} 
   %\VignetteEngine{knitr::rmarkdown} 
   %\VignetteEncoding{UTF-8}
 ---

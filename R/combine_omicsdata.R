@@ -35,9 +35,9 @@
 #' # preprocess and group the data and keep filters/grouping structure
 #' 
 #' obj_1 <- edata_transform(obj_1, "log2")
-#' obj_1 <- normalize_global(obj_1, "all", "median", apply_norm = T)
+#' obj_1 <- normalize_global(obj_1, "all", "median", apply_norm = TRUE)
 #' obj_2 <- edata_transform(obj_2, "log2")
-#' obj_2 <- normalize_global(obj_2, "all", "median", apply_norm = T)
+#' obj_2 <- normalize_global(obj_2, "all", "median", apply_norm = TRUE)
 #' 
 #' obj_1 <- group_designation(obj_1, "Condition")
 #' obj_2 <- group_designation(obj_2, "Condition")
@@ -45,7 +45,7 @@
 #' obj_1 <- applyFilt(molecule_filter(obj_1), obj_1, min_num = 2)
 #' obj_2 <- applyFilt(cv_filter(obj_2),obj_2, cv_thresh = 60)
 #' 
-#' combine_lipidData(obj_1, obj_2, retain_groups = T, retain_filters = T)
+#' combine_lipidData(obj_1, obj_2, retain_groups = TRUE, retain_filters = TRUE)
 #' 
 #' @export
 #' 

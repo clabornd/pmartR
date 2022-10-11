@@ -225,7 +225,7 @@ edata_summary <- function (omicsData, by = 'sample', groupvar = NULL) {
                                     n_per_grp$Group), ]
 
         # here we are creating a string to input for dcast function argument
-        # 'formula'
+        # "formula"
         formula1 = paste(edata_cname, "+Group~...", sep = "")
         formula2 = paste(edata_cname, "~...", sep = "")
 
@@ -308,7 +308,7 @@ edata_summary <- function (omicsData, by = 'sample', groupvar = NULL) {
       n_per_grp = n_per_grp[match(unique(edata_melt$Group), n_per_grp$Group), ]
 
       #here we are creating a string to input for dcast function argument
-      #'formula'
+      #"formula"
       formula1 = paste(edata_cname, "+Group~...", sep = "")
       formula2 = paste(edata_cname, "~...", sep = "")
 
@@ -406,7 +406,7 @@ edata_summary <- function (omicsData, by = 'sample', groupvar = NULL) {
       n_per_grp = n_per_grp[match(unique(edata_melt$Group), n_per_grp$Group), ]
 
       #here we are creating a string to input for dcast function argument
-      #'formula'
+      #"formula"
       formula1 = paste(edata_cname, "+Group~...", sep = "")
       formula2 = paste(edata_cname, "~...", sep = "")
 

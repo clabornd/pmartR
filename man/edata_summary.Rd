@@ -52,6 +52,4 @@ lipid_object2 <- group_designation(omicsData = lipid_object,
 edata_summary(omicsData = lipid_object2, by = "sample", groupvar = NULL)
 }
 
-formula'
-formula'
 }

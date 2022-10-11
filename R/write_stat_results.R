@@ -11,7 +11,7 @@
 #' @author Natalie Heller
 #' 
 #' @examples 
-#' dontrun{
+#' \dontrun{
 #' library(pmartR)
 #' library(pmartRdata)
 #' 
