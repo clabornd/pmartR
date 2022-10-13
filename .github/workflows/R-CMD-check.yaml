@@ -27,7 +27,9 @@ jobs:
             any::rcmdcheck
             github::pmartR/pmartRdata@master
           needs: check
-
+      
+      - uses: r-lib/actions/setup-pandoc@v2
+      
       - uses: r-lib/actions/check-r-package@v2
         env:
           '_R_CHECK_LIMIT_CORES_': 'warn'
