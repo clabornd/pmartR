@@ -1,0 +1,9 @@
+pandoc: 2.14.2
+pkgdown: 2.0.6
+pkgdown_sha: ~
+articles:
+  Quality_Control_with_pmartR: Quality_Control_with_pmartR.html
+  Statistical_Analysis_with_pmartR: Statistical_Analysis_with_pmartR.html
+  Trelliscope_Vignette: Trelliscope_Vignette.html
+last_built: 2022-10-13T23:04Z
+
