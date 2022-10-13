@@ -32,6 +32,6 @@ jobs:
         env:
           '_R_CHECK_LIMIT_CORES_': 'warn'
         with:
-          args: 'c("--no-manual", "--no-build-vignettes")'
-          build_args: 'c("--no-manual", "--no-build-vignettes")'
+          args: 'c("--no-manual")'
+          build_args: 'c("--no-manual")'
           error-on: '"error"'

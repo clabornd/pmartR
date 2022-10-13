@@ -215,7 +215,7 @@ The user can then specify a CV threshold, above which peptides are removed.
 ```{r cv_filter}
 myfilter <- cv_filter(mypepData)
 summary(myfilter, cv_threshold = 150)
-plot(myfilter, cv_threshold = 150, title_size = 15)
+plot(myfilter, cv_threshold = 150, title_lab_size = 15)
 
 mypepData <- applyFilt(filter_object = myfilter, mypepData, cv_threshold = 150)
 summary(mypepData)
@@ -362,12 +362,12 @@ We can go straight to the normalization, if we know what approach we want to use
 # Normalize using all peptides and median centering #
 norm_object <- normalize_global(omicsData = mypepData, subset_fn = "all", norm_fn = "median", apply_norm = FALSE, backtransform = FALSE)
 norm_data <- normalize_global(omicsData = mypepData, subset_fn = "all", norm_fn = "median", apply_norm = TRUE, backtransform = TRUE)
-plot(norm_data, title_plot="Normalized Data: Median Centering Using all Peptides", title_size=12)
+plot(norm_data, title_lab="Normalized Data: Median Centering Using all Peptides", title_lab_size=12)
 
 # Normalize using RIP 0.2 and median centering #
 norm_object <- normalize_global(omicsData = mypepData, subset_fn = "rip", params=list(rip=0.2), norm_fn = "median", apply_norm = FALSE, backtransform = FALSE)
 norm_data <- normalize_global(omicsData = mypepData, subset_fn = "rip", params=list(rip=0.2), norm_fn = "median", apply_norm = TRUE, backtransform = TRUE)
-plot(norm_data, title_plot="Normalized Data: Median Centering Using RIP 0.2 Peptides", title_size=12)
+plot(norm_data, title_lab="Normalized Data: Median Centering Using RIP 0.2 Peptides", title_lab_size=12)
 
 ```
 
@@ -451,7 +451,7 @@ plot(correlation_results)
 
 #### Missing Data
 
-Patterns of missing data can be explored using the `missingval_result()` and `plot_missingval()` functions.
+Patterns of missing data can be explored using the `missingval_result()` and corresponding `plot` function.
 
 
 ```{r missingval}
@@ -459,23 +459,10 @@ Patterns of missing data can be explored using the `missingval_result()` and `pl
 results <- missingval_result(mypepData)
 
 
-plot(results, type = "bySample")
-plot(results, type = "byMolecule")
+plot(results, mypepData, plot_type = "bar")
+plot(results, mypepData, plot_type = "scatter")
 
 ```
-
-
-In addition, the `missingval_scatterplot()` and `missingval_heatmap()` functions provide more views of the missing data.
-
-
-```{r missingval_plots}
-
-missingval_scatterplot(mypepData, palette = "Set1")
-
-missingval_heatmap(mypepData)
-
-```
-
 
 ### Protein Quantification Methods
 
