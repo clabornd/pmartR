@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pmartR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.0</span>
       </span>
     </div>
 
@@ -32,13 +32,31 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/Quality_Control_with_pmartR.html">Quality Control and Normalization of Peptide Data with the `pmartR` Package</a>
+      <a href="../articles/Convenience_Functions.html">Convenience Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Normalization.html">Data Normalization</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Object_Creation.html">Data Object Creation</a>
+    </li>
+    <li>
+      <a href="../articles/Filter_Functionality.html">Filter Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Graphing_with_pmartR.html">Graphing with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/RNAseq_Processing_Workflow.html">RNAseq Data Processing</a>
     </li>
     <li>
       <a href="../articles/Statistical_Analysis_with_pmartR.html">Statistical Analysis with the `pmartR` Package</a>
     </li>
     <li>
       <a href="../articles/Trelliscope_Vignette.html">Using Trelliscope Functions with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/Typical_Processing_Workflow.html">Typical Processing Workflow</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
@@ -83,42 +101,59 @@
 
 
 <dt>test</dt>
-<dd><p>an object of type 'seqData', created by <code><a href="as.seqData.html">as.seqData</a></code></p></dd>
+<dd><p>either "Wald" or "LRT", which will then use either Wald 
+significance tests, or the likelihood ratio test on the difference in 
+deviance between a full and reduced model formula</p></dd>
 
 
 <dt>p_adjust</dt>
-<dd><p>an object of type 'seqData', created by <code><a href="as.seqData.html">as.seqData</a></code></p></dd>
+<dd><p>Character string for p-value correction method, refer to 
+?p.adjust() for valid options. Defaults to "BH" (Benjamini &amp; Hochberg)</p></dd>
 
 
 <dt>comparisons</dt>
-<dd><p>an object of type 'seqData', created by <code><a href="as.seqData.html">as.seqData</a></code></p></dd>
+<dd><p>`data.frame` with columns for "Control" and "Test"
+containing the different comparisons of interest. Comparisons will be made
+between the Test and the corresponding Control  If left NULL, then all
+pairwise comparisons are executed.</p></dd>
+
+
+<dt>p_cutoff</dt>
+<dd><p>Numeric value between 0 and 1 for setting p-value
+significance threshold</p></dd>
 
 
 <dt>...</dt>
 <dd><p>additional arguments passed to function</p></dd>
+
+
+<dt>method</dt>
+<dd><p>a character string of length one specifying which wrapper to use. 
+Can be 'edgeR', 'DESeq2', or 'voom'</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
     
 
-<p>statres data.frame object</p>
+<p>statRes object</p>
     </div>
     <div id="details">
     <h2>Details</h2>
-    <p>Runs default DESeq workflow. Defaults to Wald test, no independent filtering, and 
-running in parallel. Additional arguments can be passed for use in the function, 
-refer to DESeq() and results() in DESeq2 package</p>
+    <p>Runs default DESeq workflow. Defaults to Wald test, no independent
+  filtering, and running in parallel. Additional arguments can be passed for
+  use in the function, refer to DESeq() and results() in DESeq2 package.
+  Requires 'survival' package to run.</p>
+<p>Flags (signatures) -	Indicator of statistical significance for computed
+  test. Zeros indicate no significance, while +/- 1 indicates direction of
+  significance.</p>
+    </div>
+    <div id="references">
+    <h2>References</h2>
+    <p>Love, M.I., Huber, W., Anders, S. Moderated estimation of fold change and 
+ dispersion for RNA-seq data with DESeq2 Genome Biology 15(12):550 (2014)</p>
     </div>
 
-    <div id="ref-examples">
-    <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
-</code></pre></div>
-    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>
@@ -131,7 +166,7 @@ refer to DESeq() and results() in DESeq2 package</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

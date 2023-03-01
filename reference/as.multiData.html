@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pmartR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.0</span>
       </span>
     </div>
 
@@ -32,13 +32,31 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/Quality_Control_with_pmartR.html">Quality Control and Normalization of Peptide Data with the `pmartR` Package</a>
+      <a href="../articles/Convenience_Functions.html">Convenience Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Normalization.html">Data Normalization</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Object_Creation.html">Data Object Creation</a>
+    </li>
+    <li>
+      <a href="../articles/Filter_Functionality.html">Filter Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Graphing_with_pmartR.html">Graphing with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/RNAseq_Processing_Workflow.html">RNAseq Data Processing</a>
     </li>
     <li>
       <a href="../articles/Statistical_Analysis_with_pmartR.html">Statistical Analysis with the `pmartR` Package</a>
     </li>
     <li>
       <a href="../articles/Trelliscope_Vignette.html">Using Trelliscope Functions with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/Typical_Processing_Workflow.html">Typical Processing Workflow</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
@@ -70,7 +88,7 @@
 <span>  <span class="va">...</span>,</span>
 <span>  f_meta <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  sample_intersect <span class="op">=</span> <span class="cn">F</span>,</span>
-<span>  match_samples <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>  match_samples <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  keep_sample_info <span class="op">=</span> <span class="cn">F</span>,</span>
 <span>  auto_fmeta <span class="op">=</span> <span class="cn">F</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -79,8 +97,8 @@
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
-<dd><p>At least two objects of type 'pepData', 'proData', 'metabData',
-'lipidData', or 'nmrData', usually created by <code><a href="as.pepData.html">as.pepData</a></code></p></dd>
+<dd><p>two or more objects of type 'pepData', 'proData', 'metabData',
+'lipidData', or 'nmrData', created by <code><a href="as.pepData.html">as.pepData</a></code></p></dd>
 
 
 <dt>f_meta</dt>
@@ -89,25 +107,26 @@ omicsData objects supplied to the function.</p></dd>
 
 
 <dt>sample_intersect</dt>
-<dd><p>Should only the samples that are common across all
-datasets be kept in f_meta?  See details for how samples will be dropped.</p></dd>
+<dd><p>logical indicator for whether only the samples that
+are common across all datasets be kept in f_meta. See details for how
+samples will be dropped.</p></dd>
 
 
 <dt>match_samples</dt>
-<dd><p>If auto_fmeta = T, whether to attempt to match the 
-names in the sample columns in f_data across all objects in an attempt to 
-align them in f_meta.  Defaults to TRUE.</p></dd>
+<dd><p>logical indicator. If auto_fmeta = TRUE, whether to attempt
+to match the names in the sample columns in f_data across all objects in an
+attempt to align them in f_meta. Defaults to TRUE.</p></dd>
 
 
 <dt>keep_sample_info</dt>
-<dd><p>Whether to attempt to append sample information 
-contained in the objects f_data to the final f_meta via a series of left 
-joins.  Defaults to FALSE.</p></dd>
+<dd><p>logical indicator for whether to attempt to append
+sample information contained in the objects' f_data to the final f_meta via
+a series of left joins. Defaults to FALSE.</p></dd>
 
 
 <dt>auto_fmeta</dt>
-<dd><p>Whether to attempt to automatically construct f_meta from
-objects sample information.  Defaults to FALSE.</p></dd>
+<dd><p>logical indicator for whether to attempt to automatically
+construct f_meta from the objects' sample information. Defaults to FALSE.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -115,54 +134,53 @@ objects sample information.  Defaults to FALSE.</p></dd>
     
 
 <p>Object of class 'multiData' containing the omicsData objects, and the
-sample alignment information f_meta.</p>
+ sample alignment information f_meta.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
-    <p>Object limits:  Currently, as.multiData accepts at most one object from each 
-of classes 'pepData/proData', 'metabData', 'nmrData', and at most two objects 
-of class 'lipidData'.</p>
+    <p>Object limits: Currently, as.multiData accepts at most one object
+from each of classes 'pepData/proData', 'metabData', 'nmrData', and at most
+two objects of class 'lipidData'.</p>
 <p><code>sample_intersect</code> will auto-align samples that occur in all datasets.
 Specifically, it creates a vector of all samples that are common across all
-datasets, and simply create an f_meta by copying this vector for each
-dataset and column-binding them.</p>
+datasets, and simply creates an f_meta by copying this vector for each dataset
+and column-binding them.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
-    <div class="dont-index"><p><code><a href="combine_lipidData.html">combine_lipidData</a></code> If you want to combine lipidData objects
-before providing them to as.multiData</p></div>
+    <div class="dont-index"><p><code><a href="combine_lipidData.html">combine_lipidData</a></code> if you want to combine lipidData
+ objects before providing them to as.multiData.</p></div>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/pmartR/pmartRdata" class="external-link">pmartRdata</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/pmartR/pmartR" class="external-link">pmartR</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Combine lipid and protein object into multidata, both must be log2 + normalized.</span></span></span>
-<span class="r-in"><span><span class="va">mylipid_object</span> <span class="op">&lt;-</span> <span class="fu"><a href="edata_transform.html">edata_transform</a></span><span class="op">(</span><span class="va">lipid_object</span>, <span class="st">"log2"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">mylipid_object</span> <span class="op">&lt;-</span> <span class="fu"><a href="normalize_global.html">normalize_global</a></span><span class="op">(</span><span class="va">mylipid_object</span>, <span class="st">"all"</span>, <span class="st">"median"</span>, apply_norm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Combine metabolomics and protein object into multidata, both must be log2 </span></span></span>
+<span class="r-in"><span><span class="co"># and normalized.</span></span></span>
+<span class="r-in"><span><span class="va">mymetab</span> <span class="op">&lt;-</span> <span class="fu"><a href="edata_transform.html">edata_transform</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">metab_object</span>, data_scale <span class="op">=</span> <span class="st">"log2"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mymetab</span> <span class="op">&lt;-</span> <span class="fu"><a href="normalize_global.html">normalize_global</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">mymetab</span>, subset_fn <span class="op">=</span> <span class="st">"all"</span>, norm_fn <span class="op">=</span> <span class="st">"median"</span>, apply_norm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">mypro</span> <span class="op">&lt;-</span> <span class="va">pro_object</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Combine without specifically supplying f_meta, either directly, or as one</span></span></span>
 <span class="r-in"><span><span class="co"># of the f_datas in any object.</span></span></span>
-<span class="r-in"><span><span class="va">mymultidata</span> <span class="op">&lt;-</span> <span class="fu">as.multiData</span><span class="op">(</span><span class="va">pro_object</span>, <span class="va">mylipid_object</span>, auto_fmeta <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mymultidata</span> <span class="op">&lt;-</span> <span class="fu">as.multiData</span><span class="op">(</span><span class="va">mymetab</span>, <span class="va">mypro</span>, auto_fmeta <span class="op">=</span> <span class="cn">TRUE</span>, sample_intersect <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Manually combining sample information to make f_meta.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> f_data_keep specifies all the items in f_data.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Manually supply an f_meta</span></span></span>
 <span class="r-in"><span><span class="va">f_meta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span><span class="st">"Proteins"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Mock"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Infection"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span><span class="op">)</span>, <span class="cn">NA</span>,  <span class="st">"Infection9"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span><span class="st">"Lipids"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Mock"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Infection"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span>, <span class="cn">NA</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Infection"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span><span class="st">"Metabolites"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Mock"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Infection"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span><span class="st">"Condition"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"B"</span>, <span class="fl">9</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="st">"Proteins"</span> <span class="op">=</span> <span class="va">mypro</span><span class="op">$</span><span class="va">f_data</span><span class="op">$</span><span class="va">SampleID</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/match.html" class="external-link">match</a></span><span class="op">(</span><span class="va">mymetab</span><span class="op">$</span><span class="va">f_data</span><span class="op">$</span><span class="va">SampleID</span>, <span class="va">mypro</span><span class="op">$</span><span class="va">f_data</span><span class="op">$</span><span class="va">SampleID</span><span class="op">)</span><span class="op">]</span>,</span></span>
+<span class="r-in"><span>   <span class="st">"Metabolites"</span> <span class="op">=</span> <span class="va">mymetab</span><span class="op">$</span><span class="va">f_data</span><span class="op">$</span><span class="va">SampleID</span>,</span></span>
+<span class="r-in"><span>   <span class="st">"Condition"</span> <span class="op">=</span> <span class="va">mymetab</span><span class="op">$</span><span class="va">f_data</span><span class="op">$</span><span class="va">Phenotype</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/match.html" class="external-link">match</a></span><span class="op">(</span><span class="va">mymetab</span><span class="op">$</span><span class="va">f_data</span><span class="op">$</span><span class="va">SampleID</span>, <span class="va">mypro</span><span class="op">$</span><span class="va">f_data</span><span class="op">$</span><span class="va">SampleID</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">mymetab_object</span> <span class="op">&lt;-</span> <span class="fu"><a href="edata_transform.html">edata_transform</a></span><span class="op">(</span><span class="va">metab_object</span>, <span class="st">"log2"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">mymetab_object</span> <span class="op">&lt;-</span> <span class="fu"><a href="normalize_global.html">normalize_global</a></span><span class="op">(</span><span class="va">mymetab_object</span>, <span class="st">"all"</span>, <span class="st">"median"</span>, apply_norm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">as.multiData</span><span class="op">(</span><span class="va">mylipid_object</span>, <span class="va">pro_object</span>, <span class="va">mymetab_object</span>, f_meta <span class="op">=</span> <span class="va">f_meta</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mymultidata</span> <span class="op">&lt;-</span> <span class="fu">as.multiData</span><span class="op">(</span><span class="va">mymetab</span>, <span class="va">mypro</span>, f_meta <span class="op">=</span> <span class="va">f_meta</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Some samples are not present across all datasets, consider keeping only the intersect with sample_intersect = TRUE</span>
 <span class="r-in"><span><span class="co"># remove samples that are not common across all data.</span></span></span>
-<span class="r-in"><span><span class="fu">as.multiData</span><span class="op">(</span><span class="va">mylipid_object</span>, <span class="va">pro_object</span>, <span class="va">mymetab_object</span>, f_meta <span class="op">=</span> <span class="va">f_meta</span>, sample_intersect <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="va">mymultidata</span> <span class="op">&lt;-</span> <span class="fu">as.multiData</span><span class="op">(</span><span class="va">mymetab</span>, <span class="va">mypro</span>, f_meta <span class="op">=</span> <span class="va">f_meta</span>, sample_intersect <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> f_data_keep specifies all the items in f_data.</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -178,7 +196,7 @@ before providing them to as.multiData</p></div>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

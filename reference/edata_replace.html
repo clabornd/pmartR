@@ -18,7 +18,7 @@ replaces them with y"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pmartR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.0</span>
       </span>
     </div>
 
@@ -33,13 +33,31 @@ replaces them with y"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/Quality_Control_with_pmartR.html">Quality Control and Normalization of Peptide Data with the `pmartR` Package</a>
+      <a href="../articles/Convenience_Functions.html">Convenience Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Normalization.html">Data Normalization</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Object_Creation.html">Data Object Creation</a>
+    </li>
+    <li>
+      <a href="../articles/Filter_Functionality.html">Filter Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Graphing_with_pmartR.html">Graphing with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/RNAseq_Processing_Workflow.html">RNAseq Data Processing</a>
     </li>
     <li>
       <a href="../articles/Statistical_Analysis_with_pmartR.html">Statistical Analysis with the `pmartR` Package</a>
     </li>
     <li>
       <a href="../articles/Trelliscope_Vignette.html">Using Trelliscope Functions with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/Typical_Processing_Workflow.html">Typical Processing Workflow</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
@@ -75,7 +93,7 @@ replaces them with y</p>
     <h2>Arguments</h2>
     <dl><dt>omicsData</dt>
 <dd><p>an object of the class 'pepData', 'proData', 'metabData',
-'lipidData', or 'nmrData' usually created by <code>pepData</code>,
+'lipidData', or 'nmrData' created by <code>pepData</code>,
 <code>proData</code>, <code>metabData</code>, <code>lipidData</code>, or
 <code><a href="as.nmrData.html">as.nmrData</a></code>, respectively.</p></dd>
 
@@ -97,7 +115,11 @@ replaces them with y</p>
     <div id="details">
     <h2>Details</h2>
     <p>This function is often used to replace any 0 values in peptide,
-  protein, metabolite, or lipid data with NA's.</p>
+  protein, metabolite, or lipid data with NA's. For omicsData on the
+  abundance scale, when the omicsData object is created, any 0's in e_data
+  are automatically converted to NA's. For omicsData on the count scale (e.g.
+  seqData objects), when the omicsData object is created, any NA's in e_data
+  are automatically converted to 0's.</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -106,11 +128,9 @@ replaces them with y</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/pmartR/pmartRdata" class="external-link">pmartRdata</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">metab_object</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">metab_object2</span> <span class="op">&lt;-</span> <span class="fu">edata_replace</span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">metab_object</span>, x<span class="op">=</span><span class="fl">0</span>, y<span class="op">=</span><span class="cn">NA</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/pmartR/pmartRdata" class="external-link">pmartRdata</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mymetab</span> <span class="op">&lt;-</span> <span class="fu">edata_replace</span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">metab_object</span>, x <span class="op">=</span> <span class="fl">0</span>, y <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 0 instances of 0 have been replaced with NA</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -126,7 +146,7 @@ replaces them with y</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

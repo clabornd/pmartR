@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pmartR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.0</span>
       </span>
     </div>
 
@@ -32,13 +32,31 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/Quality_Control_with_pmartR.html">Quality Control and Normalization of Peptide Data with the `pmartR` Package</a>
+      <a href="../articles/Convenience_Functions.html">Convenience Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Normalization.html">Data Normalization</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Object_Creation.html">Data Object Creation</a>
+    </li>
+    <li>
+      <a href="../articles/Filter_Functionality.html">Filter Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Graphing_with_pmartR.html">Graphing with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/RNAseq_Processing_Workflow.html">RNAseq Data Processing</a>
     </li>
     <li>
       <a href="../articles/Statistical_Analysis_with_pmartR.html">Statistical Analysis with the `pmartR` Package</a>
     </li>
     <li>
       <a href="../articles/Trelliscope_Vignette.html">Using Trelliscope Functions with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/Typical_Processing_Workflow.html">Typical Processing Workflow</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
@@ -71,8 +89,10 @@
 <span>  <span class="va">omicsData</span>,</span>
 <span>  <span class="va">comparisons</span>,</span>
 <span>  <span class="va">test_method</span>,</span>
-<span>  <span class="va">pval_adjust_a</span>,</span>
-<span>  <span class="va">pval_adjust_g</span>,</span>
+<span>  <span class="va">pval_adjust_a_multcomp</span>,</span>
+<span>  <span class="va">pval_adjust_g_multcomp</span>,</span>
+<span>  <span class="va">pval_adjust_a_fdr</span>,</span>
+<span>  <span class="va">pval_adjust_g_fdr</span>,</span>
 <span>  <span class="va">pval_thresh</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -80,38 +100,56 @@
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>imd_anova_out</dt>
-<dd><p>A <code>ata.frame</code> containing the results of the <code>imd_anova</code> call.</p></dd>
+<dd><p>data frame containing the results of the
+<code>imd_anova</code> call.</p></dd>
 
 
 <dt>omicsData</dt>
-<dd><p>A pmartR data object of any class, which has a `group_df` attribute that is usually created by the `group_designation()` function</p></dd>
+<dd><p>pmartR data object of any class, which has a `group_df`
+attribute that is usually created by the `group_designation()` function</p></dd>
 
 
 <dt>comparisons</dt>
-<dd><p>The comparisons made.</p></dd>
+<dd><p>character vector of comparison names, e.g. c("A_vs_B", "B_vs_C", ...)</p></dd>
 
 
 <dt>test_method</dt>
-<dd><p>The test method used ("anova", "gtest", or "combined").</p></dd>
+<dd><p>test method used ("anova", "gtest", or "combined")</p></dd>
 
 
-<dt>pval_adjust_a</dt>
-<dd><p>The p-value adjustment method for ANOVA.</p></dd>
+<dt>pval_adjust_a_multcomp</dt>
+<dd><p>character string specifying which type of multiple
+comparison adjustment was implemented for ANOVA tests. Valid options include:
+"bonferroni", "holm", "tukey", and "dunnett".</p></dd>
 
 
-<dt>pval_adjust_g</dt>
-<dd><p>The p-value adjustment method for G-test.</p></dd>
+<dt>pval_adjust_g_multcomp</dt>
+<dd><p>character string specifying which type of multiple
+comparison adjustment was implemented for G-tests. Valid options include:
+"bonferroni" and "holm".</p></dd>
+
+
+<dt>pval_adjust_a_fdr</dt>
+<dd><p>character string specifying which type of FDR
+adjustment was implemented for ANOVA tests. Valid options include:
+"bonferroni", "BH", "BY", and "fdr".</p></dd>
+
+
+<dt>pval_adjust_g_fdr</dt>
+<dd><p>character string specifying which type of FDR
+adjustment was implemented for G-tests. Valid options include:
+"bonferroni", "BH", "BY", and "fdr".</p></dd>
 
 
 <dt>pval_thresh</dt>
-<dd><p>The p-value threshold value.</p></dd>
+<dd><p>numeric p-value threshold value</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
     
 
-<p>the final object of class statRes</p>
+<p>object of class statRes</p>
     </div>
 
   </div>
@@ -126,7 +164,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

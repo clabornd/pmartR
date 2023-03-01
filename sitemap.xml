@@ -4,13 +4,31 @@
     <loc>/404.html</loc>
   </url>
   <url>
-    <loc>/articles/Quality_Control_with_pmartR.html</loc>
+    <loc>/articles/Convenience_Functions.html</loc>
+  </url>
+  <url>
+    <loc>/articles/Data_Normalization.html</loc>
+  </url>
+  <url>
+    <loc>/articles/Data_Object_Creation.html</loc>
+  </url>
+  <url>
+    <loc>/articles/Filter_Functionality.html</loc>
+  </url>
+  <url>
+    <loc>/articles/Graphing_with_pmartR.html</loc>
+  </url>
+  <url>
+    <loc>/articles/RNAseq_Processing_Workflow.html</loc>
   </url>
   <url>
     <loc>/articles/Statistical_Analysis_with_pmartR.html</loc>
   </url>
   <url>
     <loc>/articles/Trelliscope_Vignette.html</loc>
+  </url>
+  <url>
+    <loc>/articles/Typical_Processing_Workflow.html</loc>
   </url>
   <url>
     <loc>/articles/index.html</loc>
@@ -25,16 +43,10 @@
     <loc>/reference/DESeq2_wrapper.html</loc>
   </url>
   <url>
-    <loc>/reference/EdgeR_wrapper.html</loc>
-  </url>
-  <url>
     <loc>/reference/MSnSet2pepData.html</loc>
   </url>
   <url>
     <loc>/reference/RNA_filter.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Voom_wrapper.html</loc>
   </url>
   <url>
     <loc>/reference/all_subset.html</loc>
@@ -134,6 +146,9 @@
   </url>
   <url>
     <loc>/reference/edata_transform.html</loc>
+  </url>
+  <url>
+    <loc>/reference/edgeR_wrapper.html</loc>
   </url>
   <url>
     <loc>/reference/find_fmeta_cnames.html</loc>
@@ -430,7 +445,7 @@
     <loc>/reference/print.customFilterSummary.html</loc>
   </url>
   <url>
-    <loc>/reference/print.cvFilterSummary.html</loc>
+    <loc>/reference/print.cvSummary.html</loc>
   </url>
   <url>
     <loc>/reference/print.imdanovaFilterSummary.html</loc>
@@ -440,6 +455,9 @@
   </url>
   <url>
     <loc>/reference/print.proteomicsFilterSummary.html</loc>
+  </url>
+  <url>
+    <loc>/reference/print.rmdFilterSummary.html</loc>
   </url>
   <url>
     <loc>/reference/print.totalCountFiltSummary.html</loc>
@@ -613,10 +631,7 @@
     <loc>/reference/vector_replace.html</loc>
   </url>
   <url>
-    <loc>/reference/write_stat_results.html</loc>
-  </url>
-  <url>
-    <loc>/reference/write_stat_results_omics.html</loc>
+    <loc>/reference/voom_wrapper.html</loc>
   </url>
   <url>
     <loc>/reference/zrollup.html</loc>

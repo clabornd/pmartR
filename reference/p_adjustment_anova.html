@@ -20,7 +20,7 @@ of the change is indicated by the sign on 1, i.e., means&amp;lt;0 and p_value&am
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pmartR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.0</span>
       </span>
     </div>
 
@@ -35,13 +35,31 @@ of the change is indicated by the sign on 1, i.e., means&amp;lt;0 and p_value&am
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/Quality_Control_with_pmartR.html">Quality Control and Normalization of Peptide Data with the `pmartR` Package</a>
+      <a href="../articles/Convenience_Functions.html">Convenience Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Normalization.html">Data Normalization</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Object_Creation.html">Data Object Creation</a>
+    </li>
+    <li>
+      <a href="../articles/Filter_Functionality.html">Filter Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Graphing_with_pmartR.html">Graphing with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/RNAseq_Processing_Workflow.html">RNAseq Data Processing</a>
     </li>
     <li>
       <a href="../articles/Statistical_Analysis_with_pmartR.html">Statistical Analysis with the `pmartR` Package</a>
     </li>
     <li>
       <a href="../articles/Trelliscope_Vignette.html">Using Trelliscope Functions with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/Typical_Processing_Workflow.html">Typical Processing Workflow</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
@@ -72,7 +90,14 @@ of the change is indicated by the sign on 1, i.e., means&lt;0 and p_value&lt;pva
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">p_adjustment_anova</span><span class="op">(</span><span class="va">p_values</span>, <span class="va">diff_mean</span>, <span class="va">t_stats</span>, <span class="va">sizes</span>, <span class="va">pval_adjust</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">p_adjustment_anova</span><span class="op">(</span></span>
+<span>  <span class="va">p_values</span>,</span>
+<span>  <span class="va">diff_mean</span>,</span>
+<span>  <span class="va">t_stats</span>,</span>
+<span>  <span class="va">sizes</span>,</span>
+<span>  <span class="va">pval_adjust_multcomp</span>,</span>
+<span>  <span class="va">pval_adjust_fdr</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -93,8 +118,12 @@ of the change is indicated by the sign on 1, i.e., means&lt;0 and p_value&lt;pva
 <dd><p>A matrix (or <code>data.frame</code>) of group sizes</p></dd>
 
 
-<dt>pval_adjust</dt>
+<dt>pval_adjust_multcomp</dt>
 <dd><p>character vector specifying the type of multiple comparisons adjustment to implement. A NULL value corresponds to no adjustment. Valid options include: holm, bonferroni, dunnett, tukey or none.</p></dd>
+
+
+<dt>pval_adjust_fdr</dt>
+<dd><p>character vector specifying the type of FDR adjustment to implement. A NULL value corresponds to no adjustment. Valid options include: bonferroni, BH, BY, fdr, or none.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -120,7 +149,7 @@ of the change is indicated by the sign on 1, i.e., means&lt;0 and p_value&lt;pva
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

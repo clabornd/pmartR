@@ -26,7 +26,7 @@ even do this test.  See Webb-Robertson et al. (2010) for more."><!-- mathjax -->
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pmartR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.0</span>
       </span>
     </div>
 
@@ -41,13 +41,31 @@ even do this test.  See Webb-Robertson et al. (2010) for more."><!-- mathjax -->
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/Quality_Control_with_pmartR.html">Quality Control and Normalization of Peptide Data with the `pmartR` Package</a>
+      <a href="../articles/Convenience_Functions.html">Convenience Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Normalization.html">Data Normalization</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Object_Creation.html">Data Object Creation</a>
+    </li>
+    <li>
+      <a href="../articles/Filter_Functionality.html">Filter Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Graphing_with_pmartR.html">Graphing with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/RNAseq_Processing_Workflow.html">RNAseq Data Processing</a>
     </li>
     <li>
       <a href="../articles/Statistical_Analysis_with_pmartR.html">Statistical Analysis with the `pmartR` Package</a>
     </li>
     <li>
       <a href="../articles/Trelliscope_Vignette.html">Using Trelliscope Functions with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/Typical_Processing_Workflow.html">Typical Processing Workflow</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
@@ -87,11 +105,12 @@ even do this test.  See Webb-Robertson et al. (2010) for more.</p>
 <span>  <span class="va">omicsData</span>,</span>
 <span>  <span class="va">groupData</span>,</span>
 <span>  <span class="va">comparisons</span>,</span>
-<span>  <span class="va">pval_adjust</span>,</span>
+<span>  <span class="va">pval_adjust_multcomp</span>,</span>
+<span>  <span class="va">pval_adjust_fdr</span>,</span>
 <span>  <span class="va">pval_thresh</span>,</span>
 <span>  <span class="va">covariates</span>,</span>
 <span>  <span class="va">paired</span>,</span>
-<span>  <span class="va">use_parallel</span></span>
+<span>  <span class="va">parallel</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -108,10 +127,17 @@ between the Test and the corresponding Control  If left NULL, then all
 pairwise comparisons are executed.</p></dd>
 
 
-<dt>pval_adjust</dt>
+<dt>pval_adjust_multcomp</dt>
 <dd><p>A character string specifying the type of multiple
 comparisons adjustment to implement. The default setting, "none", is to not
 apply an adjustment. Valid options include: "bonferroni" and "holm".</p></dd>
+
+
+<dt>pval_adjust_fdr</dt>
+<dd><p>A character string specifying the type of FDR
+adjustment to implement. The default setting, "none", is to not
+apply an adjustment. Valid options include: "bonferroni", "BH", "BY", and
+"fdr".</p></dd>
 
 
 <dt>pval_thresh</dt>
@@ -124,7 +150,7 @@ peptides are considered differentially expressed. Defaults to 0.05</p></dd>
 that will be used as covariates in the IMD-ANOVA analysis.</p></dd>
 
 
-<dt>use_parallel</dt>
+<dt>parallel</dt>
 <dd><p>A logical value indicating whether or not to use a
 "doParallel" loop when running the G-Test with covariates. The default is
 TRUE.</p></dd>
@@ -168,7 +194,7 @@ Journal of proteome research 9.11 (2010): 5748-5756.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

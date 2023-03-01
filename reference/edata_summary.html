@@ -19,7 +19,7 @@ deviation, median, percent observed, minimum, and maximum."><!-- mathjax --><scr
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pmartR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.0</span>
       </span>
     </div>
 
@@ -34,13 +34,31 @@ deviation, median, percent observed, minimum, and maximum."><!-- mathjax --><scr
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/Quality_Control_with_pmartR.html">Quality Control and Normalization of Peptide Data with the `pmartR` Package</a>
+      <a href="../articles/Convenience_Functions.html">Convenience Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Normalization.html">Data Normalization</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Object_Creation.html">Data Object Creation</a>
+    </li>
+    <li>
+      <a href="../articles/Filter_Functionality.html">Filter Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Graphing_with_pmartR.html">Graphing with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/RNAseq_Processing_Workflow.html">RNAseq Data Processing</a>
     </li>
     <li>
       <a href="../articles/Statistical_Analysis_with_pmartR.html">Statistical Analysis with the `pmartR` Package</a>
     </li>
     <li>
       <a href="../articles/Trelliscope_Vignette.html">Using Trelliscope Functions with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/Typical_Processing_Workflow.html">Typical Processing Workflow</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
@@ -76,15 +94,15 @@ deviation, median, percent observed, minimum, and maximum.</p>
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>omicsData</dt>
-<dd><p>an object of the class 'lipidData', 'metabData', 'pepData',
-'proData', or 'nmrData' usually created by <code><a href="as.lipidData.html">as.lipidData</a></code>,
+<dd><p>object of the class 'lipidData', 'metabData', 'pepData',
+'proData', or 'nmrData' created by <code><a href="as.lipidData.html">as.lipidData</a></code>,
 <code><a href="as.metabData.html">as.metabData</a></code>, <code><a href="as.pepData.html">as.pepData</a></code>,
 <code><a href="as.proData.html">as.proData</a></code>, <code><a href="as.nmrData.html">as.nmrData</a></code>, respectively.</p></dd>
 
 
 <dt>by</dt>
-<dd><p>a character string indicating whether summarizing metrics will be
-applied by 'sample' or by 'molecule'.  Defaults to 'sample'.</p></dd>
+<dd><p>character string indicating whether summarizing metrics will be
+applied by 'sample' or by 'molecule'. Defaults to 'sample'.</p></dd>
 
 
 <dt>groupvar</dt>
@@ -98,9 +116,9 @@ case group_DF attribute will be used.</p></dd>
     <h2>Value</h2>
     
 
-<p>A list of six data frames, which are the results of applying the
-  metrics (mean, standard deviation, median, percent observed, minimum and
-  maximum) to omicsData$e_data</p>
+<p>A list of six data frames, of class 'dataRes' (data Result), which
+  are the results of applying the metrics (mean, standard deviation, median,
+  percent observed, minimum and maximum) to omicsData$e_data.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -113,19 +131,12 @@ case group_DF attribute will be used.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/pmartR/pmartRdata" class="external-link">pmartRdata</a></span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/pmartR/pmartRdata" class="external-link">pmartRdata</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">lipid_object</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mylipid</span> <span class="op">&lt;-</span> <span class="fu"><a href="edata_transform.html">edata_transform</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">lipid_pos_object</span>, data_scale <span class="op">=</span> <span class="st">"log2"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mylipid</span> <span class="op">&lt;-</span> <span class="fu"><a href="group_designation.html">group_designation</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">mylipid</span>, main_effects <span class="op">=</span> <span class="st">"Virus"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">edata_summary</span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">mylipid</span>, by <span class="op">=</span> <span class="st">"sample"</span>, groupvar <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">lipid_object2</span> <span class="op">&lt;-</span> <span class="fu"><a href="edata_transform.html">edata_transform</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">lipid_object</span>,</span></span>
-<span class="r-in"><span>                                 data_scale <span class="op">=</span> <span class="st">"log2"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">lipid_object2</span> <span class="op">&lt;-</span> <span class="fu"><a href="group_designation.html">group_designation</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">lipid_object</span>,</span></span>
-<span class="r-in"><span>                                   main_effects <span class="op">=</span> <span class="st">"Condition"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">edata_summary</span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">lipid_object2</span>, by <span class="op">=</span> <span class="st">"sample"</span>, groupvar <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -141,7 +152,7 @@ case group_DF attribute will be used.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

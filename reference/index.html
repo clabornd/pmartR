@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pmartR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.0</span>
       </span>
     </div>
 
@@ -32,13 +32,31 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/Quality_Control_with_pmartR.html">Quality Control and Normalization of Peptide Data with the `pmartR` Package</a>
+      <a href="../articles/Convenience_Functions.html">Convenience Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Normalization.html">Data Normalization</a>
+    </li>
+    <li>
+      <a href="../articles/Data_Object_Creation.html">Data Object Creation</a>
+    </li>
+    <li>
+      <a href="../articles/Filter_Functionality.html">Filter Functions</a>
+    </li>
+    <li>
+      <a href="../articles/Graphing_with_pmartR.html">Graphing with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/RNAseq_Processing_Workflow.html">RNAseq Data Processing</a>
     </li>
     <li>
       <a href="../articles/Statistical_Analysis_with_pmartR.html">Statistical Analysis with the `pmartR` Package</a>
     </li>
     <li>
       <a href="../articles/Trelliscope_Vignette.html">Using Trelliscope Functions with pmartR</a>
+    </li>
+    <li>
+      <a href="../articles/Typical_Processing_Workflow.html">Typical Processing Workflow</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
@@ -68,25 +86,17 @@
         </td>
         <td><p>Wrapper for DESeq2 workflow</p></td>
       </tr><tr><td>
-          <p><code><a href="EdgeR_wrapper.html">edgeR_wrapper()</a></code> </p>
-        </td>
-        <td><p>Wrapper for EdgeR workflow</p></td>
-      </tr><tr><td>
           <p><code><a href="MSnSet2pepData.html">MSnSet2pepData()</a></code> </p>
         </td>
         <td><p>Convert Data of class MSnSet to pmartR pepData Class</p></td>
       </tr><tr><td>
           <p><code><a href="RNA_filter.html">RNA_filter()</a></code> </p>
         </td>
-        <td><p>RNA filter object</p></td>
-      </tr><tr><td>
-          <p><code><a href="Voom_wrapper.html">voom_wrapper()</a></code> </p>
-        </td>
-        <td><p>Wrapper for limma-voom workflow</p></td>
+        <td><p>RNA Filter Object</p></td>
       </tr><tr><td>
           <p><code><a href="all_subset.html">all_subset()</a></code> </p>
         </td>
-        <td><p>Identifies the 'subset' of All Features</p></td>
+        <td><p>Identify All Biomolecules for Use in Normalization</p></td>
       </tr><tr><td>
           <p><code><a href="analysis_log.html">analysis_log()</a></code> </p>
         </td>
@@ -107,15 +117,15 @@ effects)</p></td>
       </tr><tr><td>
           <p><code><a href="as.isobaricpepData.html">as.isobaricpepData()</a></code> </p>
         </td>
-        <td><p>Convert Data to Appropriate pmartR Class</p></td>
+        <td><p>Create pmartR Object of Class isobaricpepData</p></td>
       </tr><tr><td>
           <p><code><a href="as.lipidData.html">as.lipidData()</a></code> </p>
         </td>
-        <td><p>Convert Data to Appropriate pmartR Class</p></td>
+        <td><p>Create pmartR Object of Class lipidData</p></td>
       </tr><tr><td>
           <p><code><a href="as.metabData.html">as.metabData()</a></code> </p>
         </td>
-        <td><p>Convert Data to Appropriate pmartR Class</p></td>
+        <td><p>Create pmartR Object of Class metabData</p></td>
       </tr><tr><td>
           <p><code><a href="as.multiData.html">as.multiData()</a></code> </p>
         </td>
@@ -123,27 +133,29 @@ effects)</p></td>
       </tr><tr><td>
           <p><code><a href="as.nmrData.html">as.nmrData()</a></code> </p>
         </td>
-        <td><p>Convert Data to Appropriate pmartR Class</p></td>
+        <td><p>Create pmartR Object of Class nmrData</p></td>
       </tr><tr><td>
           <p><code><a href="as.pepData.html">as.pepData()</a></code> </p>
         </td>
-        <td><p>Convert Data to Appropriate pmartR Class</p></td>
+        <td><p>Create pmartR Object of Class pepData</p></td>
       </tr><tr><td>
           <p><code><a href="as.proData.html">as.proData()</a></code> </p>
         </td>
-        <td><p>Convert Data to Appropriate pmartR Class</p></td>
+        <td><p>Create pmartR Object of Class proData</p></td>
       </tr><tr><td>
           <p><code><a href="as.seqData.html">as.seqData()</a></code> </p>
         </td>
-        <td><p>Convert Data to Appropriate pmartR Class</p></td>
+        <td><p>Create pmartR Object of Class seqData</p></td>
       </tr><tr><td>
           <p><code><a href="as.trelliData.html">as.trelliData()</a></code> </p>
         </td>
-        <td><p>Generate an object from omicsData and/or statRes objects to pass to trelliscope building functions</p></td>
+        <td><p>Generate an object from omicsData and/or statRes objects to pass to
+  trelliscope building functions</p></td>
       </tr><tr><td>
           <p><code><a href="as.trelliData.edata.html">as.trelliData.edata()</a></code> </p>
         </td>
-        <td><p>Generate an object from edata to pass to trelliscope building functions</p></td>
+        <td><p>Generate an object from edata to pass to trelliscope building
+  functions</p></td>
       </tr><tr><td>
           <p><code><a href="bpquant.html">bpquant()</a></code> </p>
         </td>
@@ -167,27 +179,27 @@ effects)</p></td>
       </tr><tr><td>
           <p><code><a href="cor_result.html">cor_result()</a></code> </p>
         </td>
-        <td><p>Correlation matrix of biomolecule data</p></td>
+        <td><p>Compute Correlation matrix of biomolecule data</p></td>
       </tr><tr><td>
           <p><code><a href="create_comparisonDF.html">create_comparisonDF()</a></code> </p>
         </td>
-        <td><p>Returns data.frame with comparisons to be made</p></td>
+        <td><p>Returns data frame with comparisons to be made</p></td>
       </tr><tr><td>
           <p><code><a href="custom_filter.html">custom_filter()</a></code> </p>
         </td>
-        <td><p>Custom Filter</p></td>
+        <td><p>Custom Filter Object</p></td>
       </tr><tr><td>
           <p><code><a href="custom_sampnames.html">custom_sampnames()</a></code> </p>
         </td>
-        <td><p>Creates custom sample names for plots</p></td>
+        <td><p>Creates custom sample names to be used in plots</p></td>
       </tr><tr><td>
           <p><code><a href="cv_filter.html">cv_filter()</a></code> </p>
         </td>
-        <td><p>Filter Based on Pooled Coefficient of Variation (CV) Values</p></td>
+        <td><p>Pooled Coefficient of Variation (CV) Filter Object</p></td>
       </tr><tr><td>
           <p><code><a href="diffexp_seq.html">diffexp_seq()</a></code> </p>
         </td>
-        <td><p>Wrapper for Differential Expression workflows</p></td>
+        <td><p>Differential Expression for seqData</p></td>
       </tr><tr><td>
           <p><code><a href="dim_reduction.html">dim_reduction()</a></code> </p>
         </td>
@@ -212,6 +224,10 @@ effects)</p></td>
           <p><code><a href="edata_transform.html">edata_transform()</a></code> </p>
         </td>
         <td><p>Apply a Transformation to the Data</p></td>
+      </tr><tr><td>
+          <p><code><a href="edgeR_wrapper.html">edgeR_wrapper()</a></code> </p>
+        </td>
+        <td><p>Wrapper for edgeR workflow</p></td>
       </tr><tr><td>
           <p><code><a href="fit_surv.html">fit_surv()</a></code> </p>
         </td>
@@ -313,8 +329,7 @@ same type of filter has already been applied.</p></td>
       </tr><tr><td>
           <p><code><a href="group_designation.html">group_designation()</a></code> </p>
         </td>
-        <td><p>Creates Attribute of omicsData object containing Group Membership Based on
-Specified Main Effects</p></td>
+        <td><p>Creates Attribute of omicsData Object for Group Membership</p></td>
       </tr><tr><td>
           <p><code><a href="gtest_filter.html">gtest_filter()</a></code> </p>
         </td>
@@ -322,7 +337,7 @@ Specified Main Effects</p></td>
       </tr><tr><td>
           <p><code><a href="imd_anova.html">imd_anova()</a></code> </p>
         </td>
-        <td><p>Tests for a qualitative and quantitative difference between groups using IMD
+        <td><p>Test for a qualitative and quantitative difference between groups using IMD
 and ANOVA, respectively</p></td>
       </tr><tr><td>
           <p><code><a href="imd_test.html">imd_test()</a></code> </p>
@@ -332,11 +347,12 @@ main effects)</p></td>
       </tr><tr><td>
           <p><code><a href="imdanova_filter.html">imdanova_filter()</a></code> </p>
         </td>
-        <td><p>IMD-ANOVA filter object</p></td>
+        <td><p>IMD-ANOVA Filter Object</p></td>
       </tr><tr><td>
           <p><code><a href="los.html">los()</a></code> </p>
         </td>
-        <td><p>Identify Features from the Top L Order Statistics</p></td>
+        <td><p>Identify Biomolecules from the Top L Order Statistics for Use in
+Normalization</p></td>
       </tr><tr><td>
           <p><code><a href="mad_transform.html">mad_transform()</a></code> </p>
         </td>
@@ -352,11 +368,11 @@ main effects)</p></td>
       </tr><tr><td>
           <p><code><a href="missingval_result.html">missingval_result()</a></code> </p>
         </td>
-        <td><p>Creates an object of class naRes</p></td>
+        <td><p>Creates an object of class naRes (NA Result)</p></td>
       </tr><tr><td>
           <p><code><a href="molecule_filter.html">molecule_filter()</a></code> </p>
         </td>
-        <td><p>Molecule filter object</p></td>
+        <td><p>Molecule Filter Object</p></td>
       </tr><tr><td>
           <p><code><a href="nonmissing_per_group.html">nonmissing_per_group()</a></code> </p>
         </td>
@@ -368,7 +384,7 @@ main effects)</p></td>
       </tr><tr><td>
           <p><code><a href="normalize_global.html">normalize_global()</a></code> </p>
         </td>
-        <td><p>Calculate Normalization Parameters</p></td>
+        <td><p>Calculate Normalization Parameters and Apply Global Normalization</p></td>
       </tr><tr><td>
           <p><code><a href="normalize_global_basic.html">normalize_global_basic()</a></code> </p>
         </td>
@@ -376,7 +392,7 @@ main effects)</p></td>
       </tr><tr><td>
           <p><code><a href="normalize_isobaric.html">normalize_isobaric()</a></code> </p>
         </td>
-        <td><p>Normalize an object of class isobaricpepData</p></td>
+        <td><p>Examine and Apply Isobaric Normalization</p></td>
       </tr><tr><td>
           <p><code><a href="normalize_loess.html">normalize_loess()</a></code> </p>
         </td>
@@ -384,7 +400,7 @@ main effects)</p></td>
       </tr><tr><td>
           <p><code><a href="normalize_nmr.html">normalize_nmr()</a></code> </p>
         </td>
-        <td><p>Normalize an object of class nmrData</p></td>
+        <td><p>Normalize an Object of Class nmrData</p></td>
       </tr><tr><td>
           <p><code><a href="normalize_quantile.html">normalize_quantile()</a></code> </p>
         </td>
@@ -396,99 +412,99 @@ main effects)</p></td>
       </tr><tr><td>
           <p><code><a href="plot-RNAFilt.html">plot(<i>&lt;RNAFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.RNAFilt</p></td>
+        <td><p>Plot RNAFilt Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-SPANSRes.html">plot(<i>&lt;SPANSRes&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Plots an object of class SPANSRes</p></td>
+        <td><p>Plot SPANSRes Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-corRes.html">plot(<i>&lt;corRes&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.corRes</p></td>
+        <td><p>Plot corRes Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-customFilt.html">plot(<i>&lt;customFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.customFilt</p></td>
+        <td><p>Plot customFilt Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-cvFilt.html">plot(<i>&lt;cvFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.cvFilt</p></td>
+        <td><p>Plot cvFilt Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-dataRes.html">plot(<i>&lt;dataRes&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Plots an object of class dataRes</p></td>
+        <td><p>Plot dataRes object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-dimRes.html">plot(<i>&lt;dimRes&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.dimRes</p></td>
+        <td><p>Plot dimRes Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-imdanovaFilt.html">plot(<i>&lt;imdanovaFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.imdanovaFilt</p></td>
+        <td><p>Plot imdanovaFilt Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-isobaricnormRes.html">plot(<i>&lt;isobaricnormRes&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Plots an object of class isobaricnormRes</p></td>
+        <td><p>Plot isobaricnormRes object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-isobaricpepData.html">plot(<i>&lt;isobaricpepData&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.isobaricpepData</p></td>
+        <td><p>Plot isobaricpepData Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-lipidData.html">plot(<i>&lt;lipidData&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.lipidData</p></td>
+        <td><p>Plot lipidData Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-metabData.html">plot(<i>&lt;metabData&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.metabData</p></td>
+        <td><p>Plot metabData Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-moleculeFilt.html">plot(<i>&lt;moleculeFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.moleculeFilt</p></td>
+        <td><p>Plot moleculeFilt Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-naRes.html">plot(<i>&lt;naRes&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Plots an object of class naRes</p></td>
+        <td><p>Plot naRes Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-nmrData.html">plot(<i>&lt;nmrData&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.nmrData</p></td>
+        <td><p>Plot nmrData Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-nmrnormRes.html">plot(<i>&lt;nmrnormRes&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Plots an object of class nmrnormRes</p></td>
+        <td><p>Plot nmrnormRes Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-normRes.html">plot(<i>&lt;normRes&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.normRes</p></td>
+        <td><p>Plot normRes Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-pepData.html">plot(<i>&lt;pepData&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.pepData</p></td>
+        <td><p>Plot pepData Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-proData.html">plot(<i>&lt;proData&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.proData</p></td>
+        <td><p>Plot proData Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-proteomicsFilt.html">plot(<i>&lt;proteomicsFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.proteomicsFilt</p></td>
+        <td><p>Plot proteomicsFilt Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-rmdFilt.html">plot(<i>&lt;rmdFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.rmdFilt</p></td>
+        <td><p>Plot rmdFilt Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-seqData.html">plot(<i>&lt;seqData&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.seqData</p></td>
+        <td><p>Plot seqData Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot-totalCountFilt.html">plot(<i>&lt;totalCountFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>plot.totalCountFilt</p></td>
+        <td><p>Plot totalCountFilt Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot.statRes.html">plot(<i>&lt;statRes&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Plotting function for `statRes` objects</p></td>
+        <td><p>Plot statRes Object</p></td>
       </tr><tr><td>
           <p><code><a href="plot_km.html">plot_km()</a></code> </p>
         </td>
@@ -496,7 +512,7 @@ main effects)</p></td>
       </tr><tr><td>
           <p><code><a href="pmartR.html">pmartR</a></code> </p>
         </td>
-        <td><p>My package</p></td>
+        <td><p>Panomics Marketplace - Quality Control and Statistical Analysis for Panomics Data</p></td>
       </tr><tr><td>
           <p><code><a href="pmartR_filter_worker.html">pmartR_filter_worker()</a></code> </p>
         </td>
@@ -504,11 +520,13 @@ main effects)</p></td>
       </tr><tr><td>
           <p><code><a href="ppp.html">ppp()</a></code> </p>
         </td>
-        <td><p>Identify Proportion of the Peptides Present (PPP) Biomolecules</p></td>
+        <td><p>Identify Biomolecules from the Proportion Present (PPP) for Use in
+Normalization</p></td>
       </tr><tr><td>
           <p><code><a href="ppp_rip.html">ppp_rip()</a></code> </p>
         </td>
-        <td><p>Identify Proportion of Peptides Present (PPP) and Rank Invariant Peptides (RIP)</p></td>
+        <td><p>Identify Proportion of Peptides Present (PPP) and Rank Invariant Peptides
+(RIP) for Use in Normalization</p></td>
       </tr><tr><td>
           <p><code><a href="pquant.html">pquant()</a></code> </p>
         </td>
@@ -584,39 +602,43 @@ main effects)</p></td>
       </tr><tr><td>
           <p><code><a href="print.RNAFiltSummary.html">print(<i>&lt;RNAFiltSummary&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Print method for summary of RNAFilt</p></td>
+        <td><p>RNA Filter Print Method</p></td>
       </tr><tr><td>
           <p><code><a href="print.customFilterSummary.html">print(<i>&lt;customFilterSummary&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Print method for summary of custom filter</p></td>
+        <td><p>Custom Filter Print Method</p></td>
       </tr><tr><td>
-          <p><code><a href="print.cvFilterSummary.html">print(<i>&lt;cvFilterSummary&gt;</i>)</a></code> </p>
+          <p><code><a href="print.cvSummary.html">print(<i>&lt;cvFilterSummary&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Print method for summary of CV filter</p></td>
+        <td><p>CV Filter Print Method</p></td>
       </tr><tr><td>
           <p><code><a href="print.imdanovaFilterSummary.html">print(<i>&lt;imdanovaFilterSummary&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Print method for summary of imdanova filter</p></td>
+        <td><p>IMD-ANOVA Filter Print Method</p></td>
       </tr><tr><td>
-          <p><code><a href="print.moleculeFilterSummary.html">print(<i>&lt;moleculeFilterSummary&gt;</i>)</a></code> <code><a href="print.moleculeFilterSummary.html">print(<i>&lt;moleculeFilterSummary&gt;</i>)</a></code> <code><a href="print.moleculeFilterSummary.html">print(<i>&lt;moleculeFilterSummary&gt;</i>)</a></code> </p>
+          <p><code><a href="print.moleculeFilterSummary.html">print(<i>&lt;moleculeFilterSummary&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Print method for summary of molecule filter</p></td>
+        <td><p>Molecule Filter Print Method</p></td>
       </tr><tr><td>
           <p><code><a href="print.proteomicsFilterSummary.html">print(<i>&lt;proteomicsFilterSummary&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Print method for summary of proteomics filter</p></td>
+        <td><p>Proteomics Filter Print Method</p></td>
       </tr><tr><td>
-          <p><code><a href="print.totalCountFiltSummary.html">print(<i>&lt;totalCountFiltSummary&gt;</i>)</a></code> <code><a href="print.totalCountFiltSummary.html">print(<i>&lt;totalCountFiltSummary&gt;</i>)</a></code> </p>
+          <p><code><a href="print.rmdFilterSummary.html">print(<i>&lt;rmdFilterSummary&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Print method for summary of Total Count filter</p></td>
+        <td><p>RMD Filter Print Method</p></td>
+      </tr><tr><td>
+          <p><code><a href="print.totalCountFiltSummary.html">print(<i>&lt;totalCountFiltSummary&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Total Count Filter Print Method</p></td>
       </tr><tr><td>
           <p><code><a href="protein_quant.html">protein_quant()</a></code> </p>
         </td>
-        <td><p>protein_quant wrapper function</p></td>
+        <td><p>Protein Quantification</p></td>
       </tr><tr><td>
           <p><code><a href="proteomics_filter.html">proteomics_filter()</a></code> </p>
         </td>
-        <td><p>Proteomics filter object</p></td>
+        <td><p>Proteomics Filter Object</p></td>
       </tr><tr><td>
           <p><code><a href="qrollup.html">qrollup()</a></code> </p>
         </td>
@@ -636,7 +658,7 @@ main effects)</p></td>
       </tr><tr><td>
           <p><code><a href="rip.html">rip()</a></code> </p>
         </td>
-        <td><p>Identify Rank-Invariant Peptides</p></td>
+        <td><p>Identify Rank-Invariant Biomolcules for Use in Normalization</p></td>
       </tr><tr><td>
           <p><code><a href="rmd_conversion.html">rmd_conversion()</a></code> </p>
         </td>
@@ -644,7 +666,7 @@ main effects)</p></td>
       </tr><tr><td>
           <p><code><a href="rmd_filter.html">rmd_filter()</a></code> </p>
         </td>
-        <td><p>RMD Runs</p></td>
+        <td><p>Robust Mahalanobis Distance (RMD) Filter Object</p></td>
       </tr><tr><td>
           <p><code><a href="rrollup.html">rrollup()</a></code> </p>
         </td>
@@ -705,7 +727,7 @@ used to compute the SPANS score in step 2.</p></td>
       </tr><tr><td>
           <p><code><a href="statRes-class.html">statRes-class</a></code> </p>
         </td>
-        <td><p>statRes class.</p></td>
+        <td><p>Summary of statRes Object</p></td>
       </tr><tr><td>
           <p><code><a href="statRes_output.html">statRes_output()</a></code> </p>
         </td>
@@ -713,7 +735,7 @@ used to compute the SPANS score in step 2.</p></td>
       </tr><tr><td>
           <p><code><a href="summary-nmrnormRes.html">summary(<i>&lt;nmrnormRes&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Summarizes an object of class nmrnormRes</p></td>
+        <td><p>Summary of nmrnormRes Object</p></td>
       </tr><tr><td>
           <p><code><a href="summary-omicsData.html">summary(<i>&lt;pepData&gt;</i>)</a></code> <code><a href="summary-omicsData.html">summary(<i>&lt;proData&gt;</i>)</a></code> <code><a href="summary-omicsData.html">summary(<i>&lt;lipidData&gt;</i>)</a></code> <code><a href="summary-omicsData.html">summary(<i>&lt;metabData&gt;</i>)</a></code> <code><a href="summary-omicsData.html">summary(<i>&lt;nmrData&gt;</i>)</a></code> <code><a href="summary-omicsData.html">summary(<i>&lt;seqData&gt;</i>)</a></code> </p>
         </td>
@@ -721,7 +743,7 @@ used to compute the SPANS score in step 2.</p></td>
       </tr><tr><td>
           <p><code><a href="summary-pmartR-results.html">summary(<i>&lt;normRes&gt;</i>)</a></code> <code><a href="summary-pmartR-results.html">summary(<i>&lt;SPANSRes&gt;</i>)</a></code> <code><a href="summary-pmartR-results.html">summary(<i>&lt;dimRes&gt;</i>)</a></code> <code><a href="summary-pmartR-results.html">summary(<i>&lt;corRes&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Produce summaries of various results objects from pmartR functions.</p></td>
+        <td><p>Summary of pmartR Analysis Functions</p></td>
       </tr><tr><td>
           <p><code><a href="summary-trelliData.html">summary(<i>&lt;trelliData&gt;</i>)</a></code> </p>
         </td>
@@ -729,35 +751,35 @@ used to compute the SPANS score in step 2.</p></td>
       </tr><tr><td>
           <p><code><a href="summary.RNAFilt.html">summary(<i>&lt;RNAFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Produce a basic summary of a RNAFilt object</p></td>
+        <td><p>RNA Filter Summary</p></td>
       </tr><tr><td>
           <p><code><a href="summary.customFilt.html">summary(<i>&lt;customFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Produce a basic summary of a custom_filter object</p></td>
+        <td><p>Custom Filter Summary</p></td>
       </tr><tr><td>
           <p><code><a href="summary.cvFilt.html">summary(<i>&lt;cvFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Produce a basic summary of a cv_filter object</p></td>
+        <td><p>Coefficient of Variation (CV) Filter Summary</p></td>
       </tr><tr><td>
           <p><code><a href="summary.imdanovaFilt.html">summary(<i>&lt;imdanovaFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Produce a basic summary of a imdanova_filter object</p></td>
+        <td><p>IMD-ANOVA Filter Summary</p></td>
       </tr><tr><td>
           <p><code><a href="summary.moleculeFilt.html">summary(<i>&lt;moleculeFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Produce a basic summary of a molecule_filter object</p></td>
+        <td><p>Molecule Filter Summary</p></td>
       </tr><tr><td>
           <p><code><a href="summary.proteomicsFilt.html">summary(<i>&lt;proteomicsFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Produce a basic summary of a proteomics_filter object</p></td>
+        <td><p>Proteomics Filter Summary</p></td>
       </tr><tr><td>
           <p><code><a href="summary.rmdFilt.html">summary(<i>&lt;rmdFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Produce a basic summary of a rmd_filter object</p></td>
+        <td><p>RMD Filter Summary</p></td>
       </tr><tr><td>
-          <p><code><a href="summary.totalCountFilt.html">summary(<i>&lt;totalCountFilt&gt;</i>)</a></code> <code><a href="summary.totalCountFilt.html">summary(<i>&lt;totalCountFilt&gt;</i>)</a></code> </p>
+          <p><code><a href="summary.totalCountFilt.html">summary(<i>&lt;totalCountFilt&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Produce a basic summary of a totalCountFilt object</p></td>
+        <td><p>Total Count Filter Summary</p></td>
       </tr><tr><td>
           <p><code><a href="summary_km.html">summary_km()</a></code> </p>
         </td>
@@ -773,7 +795,7 @@ used to compute the SPANS score in step 2.</p></td>
       </tr><tr><td>
           <p><code><a href="total_count_filter.html">total_count_filter()</a></code> </p>
         </td>
-        <td><p>Total Count filter object</p></td>
+        <td><p>Total Count Filter Object</p></td>
       </tr><tr><td>
           <p><code><a href="trelli_abundance_boxplot.html">trelli_abundance_boxplot()</a></code> </p>
         </td>
@@ -813,19 +835,15 @@ used to compute the SPANS score in step 2.</p></td>
       </tr><tr><td>
           <p><code><a href="trelli_precheck.html">trelli_precheck()</a></code> </p>
         </td>
-        <td><p>Validate arguments for trelliscope displays</p></td>
+        <td><p>Performs initial checks for trelliData objects</p></td>
       </tr><tr><td>
           <p><code><a href="vector_replace.html">vector_replace()</a></code> </p>
         </td>
         <td><p>Replace x with y for a single vector</p></td>
       </tr><tr><td>
-          <p><code><a href="write_stat_results.html">write_stat_results()</a></code> </p>
+          <p><code><a href="voom_wrapper.html">voom_wrapper()</a></code> </p>
         </td>
-        <td><p>Creates a list of three sheets, Normalized Data, DA Test Results, and Only DA biomolecules - for OMICS project</p></td>
-      </tr><tr><td>
-          <p><code><a href="write_stat_results_omics.html">write_stat_results_omics()</a></code> </p>
-        </td>
-        <td><p>Creates a list of three sheets, Normalized Data, DA Test Results, and Only DA biomolecules - for OMICS project</p></td>
+        <td><p>Wrapper for limma-voom workflow</p></td>
       </tr><tr><td>
           <p><code><a href="zrollup.html">zrollup()</a></code> </p>
         </td>
@@ -847,7 +865,7 @@ used to compute the SPANS score in step 2.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
