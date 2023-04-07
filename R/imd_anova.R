@@ -1734,7 +1734,7 @@ create_c_matrix <- function(group_df,to_compare_df=NULL){
   ngroups <- length(groups)
   compi <- NULL
   
-  if(is.null(to_compare_df)){
+  if (is.null(to_compare_df)){
     
     #Create the Cmatrix that corresponds to all pairwise comparisons
     #With two factors, all pairwise includes the higher order terms
@@ -1750,7 +1750,7 @@ create_c_matrix <- function(group_df,to_compare_df=NULL){
         compi <- c(compi,paste0(groups[i],"_vs_",groups[j]))
       }
     }
-  }else{
+  } else {
     n_comparisons <- nrow(to_compare_df)
     Cmat <- matrix(0,n_comparisons,ngroups)
     all_comp_levels <- as.character(unique(unlist(to_compare_df)))
@@ -1766,13 +1766,57 @@ create_c_matrix <- function(group_df,to_compare_df=NULL){
     }
     
     for(i in 1:n_comparisons){
+      # exact match on highest order terms
       control_i <- which(to_compare_df$Control[i] == groups)
-      test_i <- which(to_compare_df$Test[i] == groups)
+
+      # main_effect 1 match
+      if (length(control_i) == 0) {
+        main_eff = attributes(group_df)$main_effects[1]
+        .idx <- which(to_compare_df$Control[i] == group_df[,main_eff])
+        control_i <- which(groups %in% group_df[.idx,"Group"])
+
+        # nested main_effect 2 match
+        if (length(control_i) > 0) {
+          message("Provided value for control group in comparison ", i, 
+          "matched to values in main effect: '", main_eff, 
+          "'.  Searching for provided test value in this column as well",
+          sep = " ")
+        } else {
+          main_eff = attributes(group_df)$main_effects[2]
+          .idx <- which(to_compare_df$Control[i] == group_df[,main_eff])
+          control_i <- which(groups %in% group_df[.idx,"Group"])
+          if (length(control_i) > 0) {
+            message("Provided value for control group in comparison ", i, 
+            "matched to values in main effect: '", main_eff, 
+            "'.  Searching for provided test value in this column as well",
+            sep = " ")
+          } else {
+            stop("Control group ", to_compare_df$Control[i], 
+            " not found in group_DF.")
+          }
+        }
+      } else {
+        main_eff = NULL
+      }
+
+      # match test to the same column in group df as control
+      if (is.null(main_eff)) {
+        test_i <- which(to_compare_df$Test[i] == groups)
+      } else {
+        .idx <- which(to_compare_df$Test[i] == group_df[,main_eff])
+        test_i <- which(groups %in% group_df[.idx,"Group"])
+      }
+
+      if (length(test_i) == 0) {
+        stop("Test group ", to_compare_df$Test[i], 
+        " not found in the same main effect column as the control group ",
+        "in group_DF.")
+      }
+
       Cmat[i,control_i] <- (-1/length(control_i))
       Cmat[i,test_i] <- 1/length(test_i)
       compi <- c(compi,paste0(to_compare_df$Test[i],"_vs_",to_compare_df$Control[i]))
     }
-    
   }
   
   return(list(cmat=Cmat, names=compi))
