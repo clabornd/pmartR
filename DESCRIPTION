@@ -39,14 +39,13 @@ Imports:
     glmpca,
 Suggests:
     knitr,
-    rmarkdown,
     limma,
+    rmarkdown,
     edgeR,
     DESeq2,
     S4Vectors,
     survival,
     testthat,
-    MSnbase,
     trelliscopejs,
     pmartRdata,
     vdiffr
