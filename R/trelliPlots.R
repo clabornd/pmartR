@@ -574,15 +574,18 @@ trelli_abundance_boxplot <- function(trelliData,
 #' @examples
 #' \dontrun{
 #' 
-#' # Build the abundance histogram with an edata file. Generate trelliData in as.trelliData.edata
+#' # Build the abundance histogram with an edata file. 
+#' # Generate trelliData in as.trelliData.edata
 #' trelli_panel_by(trelliData = trelliData1, panel = "Peptide") %>% 
 #'    trelli_abundance_histogram(test_mode = TRUE, test_example = 1:10)
 #' 
-#' # Build the abundance histogram with an omicsData object. Generate trelliData in as.trelliData
+#' # Build the abundance histogram with an omicsData object. 
+#' # Generate trelliData in as.trelliData
 #' trelli_panel_by(trelliData = trelliData2, panel = "Peptide") %>% 
 #'    trelli_abundance_histogram(test_mode = TRUE, test_example = 1:10)
 #'     
-#' # Build the abundance histogram with an omicsData and statRes object. Generate trelliData in as.trelliData.
+#' # Build the abundance histogram with an omicsData and statRes object. 
+#' # Generate trelliData in as.trelliData.
 #' trelli_panel_by(trelliData = trelliData4, panel = "Peptide") %>%
 #'    trelli_abundance_histogram(test_mode = TRUE, test_example = 1:10, cognostics = "sample count")
 #'    
@@ -745,8 +748,9 @@ trelli_abundance_histogram <- function(trelliData,
 #' @examples
 #' \dontrun{
 #' 
-#' # Build the abundance heatmap with an omicsData object with emeta variables. Generate trelliData in as.trelliData.
-#' trelli_panel_by(trelliData = trelliData2, panel = "RazorProtein") %>% 
+#' # Build the abundance heatmap with an omicsData object with emeta variables. 
+#' # Generate trelliData in as.trelliData.
+#' trelli_panel_by(trelliData = trelliData2, panel = "RazorProtein") %>%
 #'    trelli_abundance_heatmap(test_mode = TRUE, test_example = 1:3)
 #'    
 #' # Users can modify the plotting function with ggplot parameters and interactivity, 
