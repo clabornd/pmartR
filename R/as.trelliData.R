@@ -628,7 +628,9 @@ trelli_panel_by <- function(trelliData, panel) {
 #' 
 #' # Filter both a omicsData and statRes object, while caring about a specific comparison
 #' trelli_pvalue_filter(
-#'  trelliData4, p_value_test = "gtest", p_value_thresh = 0.25, comparison = "Phenotype3_vs_Phenotype2")
+#'  trelliData4, p_value_test = "gtest", p_value_thresh = 0.25, 
+#'  comparison = "Phenotype3_vs_Phenotype2"
+#' )
 #' 
 #' 
 #' }

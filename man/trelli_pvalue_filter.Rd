@@ -44,7 +44,9 @@ trelli_pvalue_filter(trelliData4, p_value_test = "anova", p_value_thresh = 0.001
 
 # Filter both a omicsData and statRes object, while caring about a specific comparison
 trelli_pvalue_filter(
- trelliData4, p_value_test = "gtest", p_value_thresh = 0.25, comparison = "Phenotype3_vs_Phenotype2")
+ trelliData4, p_value_test = "gtest", p_value_thresh = 0.25, 
+ comparison = "Phenotype3_vs_Phenotype2"
+)
 
 
 }

@@ -756,8 +756,11 @@ trelli_abundance_histogram <- function(trelliData,
 #' # Users can modify the plotting function with ggplot parameters and interactivity, 
 #' # and can also select certain cognostics.     
 #' trelli_panel_by(trelliData = trelliData4, panel = "RazorProtein") %>% 
-#'    trelli_abundance_heatmap(test_mode = TRUE, test_example = 1:5, 
-#'      ggplot_params = c("ylab('')", "xlab('')"), interactive = TRUE, cognostics = c("biomolecule count"))  
+#'    trelli_abundance_heatmap(
+#'      test_mode = TRUE, test_example = 1:5, 
+#'      ggplot_params = c("ylab('')", "xlab('')"), 
+#'      interactive = TRUE, cognostics = c("biomolecule count")
+#'    )  
 #'    
 #' }
 #' @author David Degnan, Lisa Bramer
@@ -969,7 +972,8 @@ trelli_abundance_heatmap <- function(trelliData,
 #'   trelli_missingness_bar(test_mode = TRUE, test_example = 1:10,
 #'                          cognostics = c("observed proportion", "g-test p-value"))
 #' 
-#' # Build the missingness bar plot with an omicsData and statRes object. Generate trelliData in as.trelliData.
+#' # Build the missingness bar plot with an omicsData and statRes object. 
+#' # Generate trelliData in as.trelliData.
 #' trelli_panel_by(trelliData = trelliData4, panel = "Peptide") %>%
 #'   trelli_missingness_bar(test_mode = TRUE, test_example = 1:10) 
 #' 
@@ -979,7 +983,10 @@ trelli_abundance_heatmap <- function(trelliData,
 #'    
 #' # Or visualize only count data 
 #' trelli_panel_by(trelliData = trelliData2, panel = "Peptide") %>% 
-#'    trelli_missingness_bar(test_mode = TRUE, test_example = 1:5, cognostics = "observed count", proportion = FALSE)
+#'    trelli_missingness_bar(
+#'      test_mode = TRUE, test_example = 1:5, 
+#'      cognostics = "observed count", proportion = FALSE
+#'    )
 #'    
 #' }
 #'
