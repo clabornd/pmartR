@@ -404,7 +404,7 @@ plot.dataRes <- function(x, metric = NULL, density = FALSE,
 #' @return ggplot2 plot object if interactive is FALSE, or plotly plot object if
 #'   interactive is TRUE
 #'
-#' @examples
+#' @examplesIf identical(tolower(Sys.getenv("NOT_CRAN")), "true")
 #' library(pmartRdata)
 #' myiso <- edata_transform(omicsData = isobaric_object, data_scale = "log2")
 #' result <- normalize_isobaric(myiso,
@@ -4870,7 +4870,7 @@ plot.normRes <- function(x, order_by = NULL, color_by = NULL,
 #' @return ggplot2 plot object if interactive is FALSE, or plotly plot object if
 #'   interactive is TRUE
 #'
-#' @examples
+#' @examplesIf identical(tolower(Sys.getenv("NOT_CRAN")), "true")
 #' library(pmartRdata)
 #' myiso <- edata_transform(omicsData = isobaric_object, data_scale = "log2")
 #' plot(myiso)
@@ -5225,7 +5225,7 @@ plot.nmrData <- function(x, order_by = NULL, color_by = NULL,
 #' @return ggplot2 plot object if interactive is FALSE, or plotly plot object if
 #'   interactive is TRUE
 #'
-#' @examples
+#' @examplesIf identical(tolower(Sys.getenv("NOT_CRAN")), "true")
 #' library(pmartRdata)
 #' plot(rnaseq_object, transformation = "lcpm")
 #'
@@ -5312,7 +5312,7 @@ plot.seqData <- function(x, order_by = NULL, color_by = NULL,
 #' @return ggplot2 plot object if interactive is FALSE, or plotly plot object if
 #'   interactive is TRUE
 #'
-#' @examples
+#' @examplesIf identical(tolower(Sys.getenv("NOT_CRAN")), "true")
 #' library(pmartRdata)
 #' data(pep_object)
 #' mypep <- edata_transform(omicsData = pep_object, data_scale = "log2")
@@ -5973,7 +5973,7 @@ plot_omicsData <- function(omicsData, order_by, color_by, facet_by, facet_cols,
 #'
 #' @export
 #' @method plot statRes
-#' @examples
+#' @examplesIf identical(tolower(Sys.getenv("NOT_CRAN")), "true")
 #' library(pmartRdata)
 #' # Group the data by condition
 #' mypro <- group_designation(

@@ -76,7 +76,7 @@
 #'  \code{e_data}.\cr \tab \cr meta_info \tab A logical argument, specifying
 #'  whether \code{e_meta} is provided.\cr \tab \cr }
 #'
-#' @examples
+#' @examplesIf identical(tolower(Sys.getenv("NOT_CRAN")), "true")
 #' library(pmartRdata)
 #' mypep <- as.isobaricpepData(
 #'   e_data = isobaric_edata,
