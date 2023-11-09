@@ -71,7 +71,7 @@ ggplot2 plot object if interactive is FALSE, or plotly plot object if
 Creates box plots for an S3 object of type 'isobaricnormRes'
 }
 \examples{
-\dontshow{if (identical(tolower(Sys.getenv("NOT_CRAN")), "true")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (identical(tolower(Sys.getenv("NOT_CRAN")), "true") & requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 library(pmartRdata)
 myiso <- edata_transform(omicsData = isobaric_object, data_scale = "log2")
 result <- normalize_isobaric(myiso,

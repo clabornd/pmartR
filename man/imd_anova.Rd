@@ -74,7 +74,7 @@ An object of class 'statRes', which is a data frame containing
 This is the IMD-ANOVA test defined in Webb-Robertson et al. (2010).
 }
 \examples{
-\dontshow{if (identical(tolower(Sys.getenv("NOT_CRAN")), "true")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (identical(tolower(Sys.getenv("NOT_CRAN")), "true") & requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 library(pmartRdata)
 # Transform the data
 mymetab <- edata_transform(omicsData = metab_object, data_scale = "log2")

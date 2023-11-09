@@ -52,7 +52,7 @@
 #'   \code{f_data} containing information about which experiment/plate a sample
 #'   was run on.
 #'
-#' @examplesIf identical(tolower(Sys.getenv("NOT_CRAN")), "true")
+#' @examplesIf identical(tolower(Sys.getenv("NOT_CRAN")), "true") & requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #'
 #' myiso <- edata_transform(isobaric_object, "log2")

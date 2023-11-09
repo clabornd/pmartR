@@ -33,7 +33,7 @@
 #'   they interfere with the graph itself. To use the custom sample names when
 #'   plotting, specify the optional argument 'use_VizSampNames = TRUE'.
 #'
-#' @examplesIf identical(tolower(Sys.getenv("NOT_CRAN")), "true")
+#' @examplesIf identical(tolower(Sys.getenv("NOT_CRAN")), "true") && requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #' 
 #' mypep <- edata_transform(omicsData = pep_object, data_scale = "log2")
