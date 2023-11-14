@@ -1,3 +1,9 @@
+### November 14, 2023
+- Skipping long-running tests to speed up checks.  These tests are still run with github actions.
+- Update LICENSE.
+
+
+### November 9, 2023
 **Dealt with error relating to missing package `pmartRdata` in Suggests.**  Package moved to drat repository and DESCRIPTION updated to use `Additional_repositories`.  Examples now run conditionally on whether pmartRdata can be loaded with `requireNamespace` to prevent errors during checks.
 
 **Added vignettes to .Rbuildignore to avoid warnings.**  Vignettes take a long time to run and are published to a github pages.
