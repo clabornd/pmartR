@@ -18,7 +18,6 @@ Depends:
 LazyData: TRUE
 URL: https://github.com/pmartR/pmartR
 BugReports: https://github.com/pmartR/pmartR/issues
-VignetteBuilder: knitr
 LinkingTo: Rcpp, RcppArmadillo, BH
 biocViews:
 Imports:
