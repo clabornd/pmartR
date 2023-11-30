@@ -54,3 +54,4 @@ jobs:
         with:
           args: 'c("--no-manual", "--no-vignettes", "--as-cran")'
           build_args: 'c("--no-manual", "--no-build-vignettes")'
+          error-on: '"error"'
