@@ -55,7 +55,7 @@
 #'  RNA-sequencing and microarray studies. Nucleic Acids Research 43(7), e47.
 #'
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
+#' \donttest{
 #' library(pmartRdata)
 #' myseqData <- group_designation(omicsData = rnaseq_object, main_effects = "Virus")
 #' edger_results <- diffexp_seq(omicsData = myseqData, method = "edgeR")
@@ -1002,15 +1002,6 @@ voom_wrapper <- function(
 #'
 #' @param omicsData an object of type 'seqData', created by \code{\link{as.seqData}}
 #'
-#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
-#'
-#' library(pmartRdata)
-#' myseqData <- rnaseq_object
-#' myseqData <- group_designation(omicsData = myseqData, main_effects = "Virus")
-#' grouping_info <- pmartR:::get_group_formula(omicsData = myseqData)
-#' }
-#'
 #' @rdname get_group_formula
 #' @name get_group_formula
 #'
@@ -1159,7 +1150,7 @@ get_group_formula <- function(omicsData) {
 #' @return plot result
 #'
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
+#' \donttest{
 #' library(pmartRdata)
 #' myseqData <- group_designation(omicsData = rnaseq_object, main_effects = "Virus")
 #' dispersion_est(omicsData = myseqData, method = "edgeR")

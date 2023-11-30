@@ -252,14 +252,14 @@ trelli_builder <- function(toBuild, cognostics, plotFUN, cogFUN, path, name, rem
 #' @param ... Additional arguments to be passed on to the trelli builder
 #'
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
+#' \donttest{
 #' 
 #' ## Generate trelliData objects using the as.trelliData.edata example code.
-#' 
+#'
 #' # Build the abundance boxplot with an edata file where each panel is a biomolecule. 
 #' trelli_panel_by(trelliData = trelliData1, panel = "Peptide") %>% 
 #'    trelli_abundance_boxplot(test_mode = TRUE, test_example = 1:10)
-#'    
+#'
 #' # Build the abundance boxplot wher each panel is a sample.
 #' # Include all applicable cognostics. Remove points. 
 #' trelli_panel_by(trelliData = trelliData1, panel = "Sample") %>% 
@@ -270,32 +270,32 @@ trelli_builder <- function(toBuild, cognostics, plotFUN, cogFUN, path, name, rem
 #'                                            "median abundance", 
 #'                                            "cv abundance")
 #'                            )
-#' 
+#'
 #' # Build the abundance boxplot with an omicsData object.
 #' # Let the panels be biomolecules. Here, grouping information is included.
 #' trelli_panel_by(trelliData = trelliData2, panel = "Peptide") %>% 
 #'    trelli_abundance_boxplot(test_mode = TRUE, test_example = 1:10)
-#'    
+#'
 #' # Build the abundance boxplot with an omicsData object. The panel is a biomolecule class,
 #' # which is proteins in this case.
 #' trelli_panel_by(trelliData = trelliData2, panel = "RazorProtein") %>% 
 #'    trelli_abundance_boxplot(test_mode = TRUE, test_example = 1:10)
-#'     
+#'
 #' # Build the abundance boxplot with an omicsData and statRes object.
 #' # Panel by a biomolecule, and add statistics data to the cognostics
 #' trelli_panel_by(trelliData = trelliData4, panel = "Peptide") %>%
 #'    trelli_abundance_boxplot(test_mode = TRUE, test_example = 1:10,
 #'                             cognostics = c("mean abundance", "anova p-value", "fold change"))
-#'  
+#'
 #' # Other options include modifying the ggplot  
 #' trelli_panel_by(trelliData = trelliData1, panel = "Peptide") %>% 
 #'    trelli_abundance_boxplot(test_mode = TRUE, test_example = 1:10, 
 #'      ggplot_params = c("ylab('')", "ylim(c(20,30))"))
-#' 
+#'
 #' # Or making the plot interactive 
 #' trelli_panel_by(trelliData = trelliData4, panel = "RazorProtein") %>% 
 #'     trelli_abundance_boxplot(interactive = TRUE, test_mode = TRUE, test_example = 1:10)
-#' 
+#'
 #' }
 #'
 #' @author David Degnan, Lisa Bramer
@@ -572,7 +572,7 @@ trelli_abundance_boxplot <- function(trelliData,
 #' @param ... Additional arguments to be passed on to the trelli builder
 #'
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
+#' \donttest{
 #' 
 #' # Build the abundance histogram with an edata file. 
 #' # Generate trelliData in as.trelliData.edata
@@ -746,7 +746,7 @@ trelli_abundance_histogram <- function(trelliData,
 #' @param ... Additional arguments to be passed on to the trelli builder
 #'
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
+#' \donttest{
 #' 
 #' # Build the abundance heatmap with an omicsData object with emeta variables. 
 #' # Generate trelliData in as.trelliData.
@@ -955,7 +955,7 @@ trelli_abundance_heatmap <- function(trelliData,
 #' @param ... Additional arguments to be passed on to the trelli builder
 #'   
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
+#' \donttest{
 #' 
 #' # Build the missingness bar plot with an edata file. Generate trelliData in as.trelliData.edata
 #' trelli_panel_by(trelliData = trelliData1, panel = "Peptide") %>% 
@@ -1348,7 +1348,7 @@ determine_significance <- function(DF, p_value_thresh) {
 #' @param ... Additional arguments to be passed on to the trelli builder
 #'
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
+#' \donttest{
 #' 
 #' # Build fold_change bar plot with statRes data grouped by edata_colname.
 #' trelli_panel_by(trelliData = trelliData3, panel = "Peptide") %>% 
@@ -1531,7 +1531,7 @@ trelli_foldchange_bar <- function(trelliData,
 #' @param ... Additional arguments to be passed on to the trelli builder
 #'   
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{ 
+#' \donttest{ 
 #' 
 #' # Build fold_change box plot with statRes data grouped by edata_colname.
 #' trelli_panel_by(trelliData = trelliData4, panel = "RazorProtein") %>% 
@@ -1738,7 +1738,7 @@ trelli_foldchange_boxplot <- function(trelliData,
 #' @param ... Additional arguments to be passed on to the trelli builder
 #' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{ 
+#' \donttest{ 
 #' 
 #' # Build fold_change bar plot with statRes data grouped by edata_colname.
 #' trelli_panel_by(trelliData = trelliData4, panel = "RazorProtein") %>% 
@@ -1938,8 +1938,31 @@ trelli_foldchange_heatmap <- function(trelliData,
 #' @param ... Additional arguments to be passed on to the trelli builder
 #'   
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
+#' \donttest{
+#' 
+#' library(pmartRdata)
 #'
+#' # Transform the data
+#' omicsData <- edata_transform(omicsData = pep_object, data_scale = "log2")
+#'
+#' # Group the data by condition
+#' omicsData <- group_designation(omicsData = omicsData, main_effects = c("Phenotype"))
+#'
+#' # Apply the IMD ANOVA filter
+#' imdanova_Filt <- imdanova_filter(omicsData = omicsData)
+#' omicsData <- applyFilt(filter_object = imdanova_Filt, omicsData = omicsData,
+#'                        min_nonmiss_anova = 2)
+#'
+#' # Normalize my pepData
+#' omicsData <- normalize_global(omicsData, "subset_fn" = "all", "norm_fn" = "median",
+#'                              "apply_norm" = TRUE, "backtransform" = TRUE)
+#'
+#' # Implement the IMD ANOVA method and compute all pairwise comparisons 
+#' # (i.e. leave the `comparisons` argument NULL)
+#' statRes <- imd_anova(omicsData = omicsData, test_method = 'combined')
+#'
+#' # Generate the trelliData object
+#' trelliData4 <- as.trelliData(omicsData = omicsData, statRes = statRes)
 #' ## Build fold_change bar plot with statRes data grouped by edata_colname.
 #' trelli_panel_by(trelliData = trelliData4, panel = "RazorProtein") %>% 
 #'   trelli_foldchange_volcano(comparison = "all", test_mode = TRUE, test_example = 1:10,

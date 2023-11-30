@@ -310,7 +310,7 @@ print.RNAFiltSummary <- function(x, ...) {
 #' filtered at this threshold are reported.
 #'
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
+#' \donttest{
 #' library(pmartRdata)
 #' myfilt <- total_count_filter(omicsData = rnaseq_object)
 #' summary(myfilt, min_count = 15)

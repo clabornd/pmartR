@@ -64,7 +64,7 @@ Specify a plot design and cognostics for the missing barchart
 }
 \examples{
 \dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\dontrun{
+\donttest{
 
 # Build the missingness bar plot with an edata file. Generate trelliData in as.trelliData.edata
 trelli_panel_by(trelliData = trelliData1, panel = "Peptide") \%>\% 

@@ -57,7 +57,7 @@ Specify a plot design and cognostics for the abundance heatmap
 }
 \examples{
 \dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\dontrun{
+\donttest{
 
 # Build the abundance heatmap with an omicsData object with emeta variables. 
 # Generate trelliData in as.trelliData.

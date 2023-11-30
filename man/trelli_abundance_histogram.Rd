@@ -58,7 +58,7 @@ Specify a plot design and cognostics for the abundance histogram
 }
 \examples{
 \dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\dontrun{
+\donttest{
 
 # Build the abundance histogram with an edata file. 
 # Generate trelliData in as.trelliData.edata

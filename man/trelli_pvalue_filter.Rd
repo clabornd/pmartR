@@ -31,7 +31,7 @@ This use-case-specific function allows users to filter down their plots to a
 }
 \examples{
 \dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\dontrun{
+\donttest{
 
 # Filter a trelliData object with only statistics results, while not caring about a comparison
 trelli_pvalue_filter(trelliData3, p_value_test = "anova", p_value_thresh = 0.1)

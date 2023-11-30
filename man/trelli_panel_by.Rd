@@ -17,8 +17,7 @@ Allows for grouping omics or stats data for downstream plotting
 }
 \examples{
 \dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\dontrun{
-
+\donttest{
 
 ## "panel_by" with an edata file. 
 ## Generate trelliData1 using the example code for as.trelliData.edata

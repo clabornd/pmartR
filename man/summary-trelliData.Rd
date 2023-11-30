@@ -18,7 +18,7 @@ Summarizes potential plotting options for a trelliData object
 }
 \examples{
 \dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\dontrun{
+\donttest{
 
 library(dplyr)
 

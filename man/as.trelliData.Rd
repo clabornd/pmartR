@@ -28,7 +28,7 @@ Either an omicData and/or a statRes object are accepted.
 }
 \examples{
 \dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\dontrun{
+\donttest{
 library(pmartRdata)
 
 # Transform the data

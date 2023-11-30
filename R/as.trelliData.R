@@ -5,11 +5,7 @@
 #' @param edata Must be a dataframe. Required.
 #'
 #' @return A boolean where TRUE means the file is an acceptable edata file.
-#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
-#'
-#' .is_edata(pmartRdata::lipid_edata)
-#' }
+#' 
 .is_edata <- function(edata) {
   # If edata is NULL, return FALSE
   if (is.null(edata) || is.data.frame(edata) == FALSE) {
@@ -235,7 +231,7 @@ as.trelliData.edata <- function(e_data,
 #'   \code{\link{imd_anova}}
 #'
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
+#' \donttest{
 #' library(pmartRdata)
 #' 
 #' # Transform the data
@@ -468,8 +464,7 @@ as.trelliData <- function(omicsData = NULL, statRes = NULL) {
 #' @param panel The name of a column in trelliData to panel the data by. Required.
 #'
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
-#' 
+#' \donttest{
 #' 
 #' ## "panel_by" with an edata file. 
 #' ## Generate trelliData1 using the example code for as.trelliData.edata
@@ -614,7 +609,7 @@ trelli_panel_by <- function(trelliData, panel) {
 #'    be null. See attr(statRes, "comparisons") for the available options. Optional.
 #'    
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
-#' \dontrun{
+#' \donttest{
 #' 
 #' # Filter a trelliData object with only statistics results, while not caring about a comparison
 #' trelli_pvalue_filter(trelliData3, p_value_test = "anova", p_value_thresh = 0.1)
