@@ -474,9 +474,36 @@ as.trelliData <- function(omicsData = NULL, statRes = NULL) {
 #' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{
+#' library(pmartRdata)
 #' 
+#' trelliData1 <- as.trelliData.edata(e_data = pep_edata,
+#'                                    edata_cname = "Peptide",
+#'                                    omics_type = "pepData")
+#' # Transform the data
+#' omicsData <- edata_transform(omicsData = pep_object, data_scale = "log2")
+#' 
+#' # Group the data by condition
+#' omicsData <- group_designation(omicsData = omicsData, main_effects = c("Phenotype"))
+#'
+#' # Apply the IMD ANOVA filter
+#' imdanova_Filt <- imdanova_filter(omicsData = omicsData)
+#' omicsData <- applyFilt(filter_object = imdanova_Filt, omicsData = omicsData,
+#'                        min_nonmiss_anova = 2)
+#'
+#' # Normalize my pepData
+#' omicsData <- normalize_global(omicsData, "subset_fn" = "all", "norm_fn" = "median",
+#'                              "apply_norm" = TRUE, "backtransform" = TRUE)
+#'
+#' # Implement the IMD ANOVA method and compute all pairwise comparisons 
+#' # (i.e. leave the `comparisons` argument NULL)
+#' statRes <- imd_anova(omicsData = omicsData, test_method = 'combined')
+#'
+#' # Generate the trelliData object
+#' trelliData2 <- as.trelliData(omicsData = omicsData)
+#' trelliData3 <- as.trelliData(statRes = statRes)
+#' trelliData4 <- as.trelliData(omicsData = omicsData, statRes = statRes)
+#'
 #' ## "panel_by" with an edata file. 
-#' ## Generate trelliData1 using the example code for as.trelliData.edata
 #' trelli_panel_by(trelliData = trelliData1, panel = "Peptide")
 #' trelli_panel_by(trelliData = trelliData1, panel = "Sample")
 #' 
@@ -622,6 +649,30 @@ trelli_panel_by <- function(trelliData, panel) {
 #' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{
+#' library(pmartRdata)
+#' 
+#' # Transform the data
+#' omicsData <- edata_transform(omicsData = pep_object, data_scale = "log2")
+#' 
+#' # Group the data by condition
+#' omicsData <- group_designation(omicsData = omicsData, main_effects = c("Phenotype"))
+#'
+#' # Apply the IMD ANOVA filter
+#' imdanova_Filt <- imdanova_filter(omicsData = omicsData)
+#' omicsData <- applyFilt(filter_object = imdanova_Filt, omicsData = omicsData,
+#'                        min_nonmiss_anova = 2)
+#'
+#' # Normalize my pepData
+#' omicsData <- normalize_global(omicsData, "subset_fn" = "all", "norm_fn" = "median",
+#'                              "apply_norm" = TRUE, "backtransform" = TRUE)
+#'
+#' # Implement the IMD ANOVA method and compute all pairwise comparisons 
+#' # (i.e. leave the `comparisons` argument NULL)
+#' statRes <- imd_anova(omicsData = omicsData, test_method = 'combined')
+#'
+#' # Generate the trelliData object
+#' trelliData3 <- as.trelliData(statRes = statRes)
+#' trelliData4 <- as.trelliData(omicsData = omicsData, statRes = statRes)
 #' 
 #' # Filter a trelliData object with only statistics results, while not caring about a comparison
 #' trelli_pvalue_filter(trelliData3, p_value_test = "anova", p_value_thresh = 0.1)

@@ -97,7 +97,8 @@ trelliData4 <- as.trelliData(omicsData = omicsData, statRes = statRes)
 ## Build fold_change bar plot with statRes data grouped by edata_colname.
 trelli_panel_by(trelliData = trelliData4, panel = "RazorProtein") \%>\% 
   trelli_foldchange_volcano(comparison = "all", test_mode = TRUE, test_example = 1:10,
-                            cognostics = c("biomolecule count", "proportion significant"))
+                            cognostics = c("biomolecule count", "proportion significant"),
+                            path = tempdir())
 
 }
 \dontshow{\}) # examplesIf}

@@ -24,10 +24,15 @@ Summarizes potential plotting options for a trelliData object
 \donttest{
 
 library(dplyr)
+library(pmartRdata)
+
+trelliData <- as.trelliData.edata(e_data = pep_edata,
+                                   edata_cname = "Peptide",
+                                   omics_type = "pepData")
 
 # Use an edata example. Build with as.trelliData.edata.
 summary(trelliData)
-summary(trelliData \%>\% trelli_panel_by("Lipid"))
+summary(trelliData \%>\% trelli_panel_by("Peptide"))
 summary(trelliData \%>\% trelli_panel_by("Sample"))
 
 # Use an omicsData example. Build with as.trelliData.
