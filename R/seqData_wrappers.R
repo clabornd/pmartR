@@ -1002,6 +1002,14 @@ voom_wrapper <- function(
 #'
 #' @param omicsData an object of type 'seqData', created by \code{\link{as.seqData}}
 #'
+#' @return A list with two elements:
+#' \itemize{
+#'  \item grouping_info: A data.frame with the grouping information used in
+#'   the statistical analysis
+#' \item formula_string: A character string with the formula used in the
+#'  statistical analysis
+#' }
+#' 
 #' @rdname get_group_formula
 #' @name get_group_formula
 #'

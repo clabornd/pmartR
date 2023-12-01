@@ -22,6 +22,9 @@
 #'   potential future functions.
 #' @param p_value_thresh The user provided threshold for plotting significant
 #'   p-values.
+#' 
+#' @return No return value, validates a trelliData object before passing it to builder functions.
+#' 
 trelli_precheck <- function(trelliData, 
                             trelliCheck,
                             cognostics,
@@ -251,6 +254,8 @@ trelli_builder <- function(toBuild, cognostics, plotFUN, cogFUN, path, name, rem
 #'   trelliscope) should be returned. Default is FALSE.
 #' @param ... Additional arguments to be passed on to the trelli builder
 #'
+#' @return No return value, builds a trelliscope display of boxplots that is stored in `path`
+#' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{
 #' 
@@ -571,6 +576,8 @@ trelli_abundance_boxplot <- function(trelliData,
 #'   trelliscope) should be returned. Default is FALSE.
 #' @param ... Additional arguments to be passed on to the trelli builder
 #'
+#' @return No return value, builds a trelliscope display of histograms that is stored in `path`
+#' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{
 #' 
@@ -745,6 +752,8 @@ trelli_abundance_histogram <- function(trelliData,
 #'   trelliscope) should be returned. Default is FALSE.
 #' @param ... Additional arguments to be passed on to the trelli builder
 #'
+#' @return No return value, builds a trelliscope display of heatmaps that is stored in `path`
+#' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{
 #' 
@@ -953,7 +962,9 @@ trelli_abundance_heatmap <- function(trelliData,
 #' @param single_plot A TRUE/FALSE to indicate whether 1 plot (not a
 #'    trelliscope) should be returned. Default is FALSE.
 #' @param ... Additional arguments to be passed on to the trelli builder
-#'   
+#'
+#' @return No return value, builds a trelliscope display of missingness bar charts that is stored in `path`
+#' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{
 #' 
@@ -1347,6 +1358,8 @@ determine_significance <- function(DF, p_value_thresh) {
 #'   trelliscope) should be returned. Default is FALSE.
 #' @param ... Additional arguments to be passed on to the trelli builder
 #'
+#' @return No return value, builds a trelliscope display of fold_change bar plots that is stored in `path`
+#' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{
 #' 
@@ -1529,7 +1542,9 @@ trelli_foldchange_bar <- function(trelliData,
 #' @param single_plot A TRUE/FALSE to indicate whether 1 plot (not a
 #'   trelliscope) should be returned. Default is FALSE.
 #' @param ... Additional arguments to be passed on to the trelli builder
-#'   
+#'
+#' @return No return value, builds a trelliscope display of fold_change boxplots that is stored in `path`
+#' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{ 
 #' 
@@ -1737,6 +1752,8 @@ trelli_foldchange_boxplot <- function(trelliData,
 #'   trelliscope) should be returned. Default is FALSE.
 #' @param ... Additional arguments to be passed on to the trelli builder
 #' 
+#' @return No return value, builds a trelliscope display of fold-change heatmaps that is stored in `path`
+#' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{ 
 #' 
@@ -1936,7 +1953,9 @@ trelli_foldchange_heatmap <- function(trelliData,
 #' @param single_plot A TRUE/FALSE to indicate whether 1 plot (not a
 #'   trelliscope) should be returned. Default is FALSE.
 #' @param ... Additional arguments to be passed on to the trelli builder
-#'   
+#' 
+#' @return No return value, builds a trelliscope display of fold-change volcano plots that is stored in `path`
+#' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{
 #' 

@@ -24,6 +24,10 @@ at which to keep plots. Default is 0.05. Required.}
 \item{comparison}{The specific comparison to filter significant values to. Can
 be null. See attr(statRes, "comparisons") for the available options. Optional.}
 }
+\value{
+A paneled trelliData object with only plots corresponding to significant
+p-values from a statistical test.
+}
 \description{
 This use-case-specific function allows users to filter down their plots to a 
    specified p-value IF statistics data has been included. This function is mostly

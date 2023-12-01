@@ -51,6 +51,9 @@ trelliscope) should be returned. Default is FALSE.}
 
 \item{...}{Additional arguments to be passed on to the trelli builder}
 }
+\value{
+No return value, builds a trelliscope display of fold_change bar plots that is stored in `path`
+}
 \description{
 Specify a plot design and cognostics for the fold_change
   barchart trelliscope. Fold change must be grouped by edata_cname.

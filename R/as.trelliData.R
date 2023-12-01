@@ -80,6 +80,9 @@
 #' @param force_normalization A logical indicator to force normalization that is
 #'   not required for both isobaric protein and NMR data
 #'
+#' @return An object of class 'trelliData' containing the raw data.
+#'  To be passed to trelliscope building functions.  
+#' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #' 
@@ -230,6 +233,9 @@ as.trelliData.edata <- function(e_data,
 #' @param statRes statRes an object of the class 'statRes', created by
 #'   \code{\link{imd_anova}}
 #'
+#' @return An object of class 'trelliData' containing the raw data and optionally, statRes.  
+#'  To be passed to trelliscope building functions.
+#' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{
 #' library(pmartRdata)
@@ -463,6 +469,9 @@ as.trelliData <- function(omicsData = NULL, statRes = NULL) {
 #' @param trelliData A trelliscope data object made by as.trelliData or as.trelliData.edata. Required.
 #' @param panel The name of a column in trelliData to panel the data by. Required.
 #'
+#' @return A trelliData object with attributes "panel_by_omics" or "panel_by_stat" to determine 
+#' which columns to divide the data by.
+#' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{
 #' 
@@ -607,7 +616,10 @@ trelli_panel_by <- function(trelliData, panel) {
 #'    at which to keep plots. Default is 0.05. Required.
 #' @param comparison The specific comparison to filter significant values to. Can
 #'    be null. See attr(statRes, "comparisons") for the available options. Optional.
-#'    
+#' 
+#' @return A paneled trelliData object with only plots corresponding to significant
+#' p-values from a statistical test.
+#' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{
 #' 

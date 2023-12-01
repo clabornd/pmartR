@@ -4,6 +4,8 @@
 #'   functions
 #' @param ... further arguments passed to or from other methods.
 #'
+#' @return A data.frame containing panel plot options for this trelliData object.
+#' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{
 #'

@@ -11,6 +11,10 @@ trelli_panel_by(trelliData, panel)
 
 \item{panel}{The name of a column in trelliData to panel the data by. Required.}
 }
+\value{
+A trelliData object with attributes "panel_by_omics" or "panel_by_stat" to determine 
+which columns to divide the data by.
+}
 \description{
 Allows for grouping omics or stats data for downstream plotting
     and cognostic functions

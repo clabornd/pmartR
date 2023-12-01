@@ -59,6 +59,9 @@ trelliscope) should be returned. Default is FALSE.}
 
 \item{...}{Additional arguments to be passed on to the trelli builder}
 }
+\value{
+No return value, builds a trelliscope display of fold-change volcano plots that is stored in `path`
+}
 \description{
 Specify a plot design and cognostics for the fold_change volcano
   trelliscope. Fold change must be grouped by an emeta column, which means

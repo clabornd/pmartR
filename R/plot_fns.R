@@ -4619,6 +4619,8 @@ plot.cvFilt <- function(x, cv_threshold = NULL,
 #' @param x An object of class customFilt.
 #' @param ... further arguments passed to or from other methods.
 #'
+#' @return No return value, implemented to provide information to user.
+#' 
 #' @rdname plot-customFilt
 #'
 #' @export
@@ -6346,6 +6348,8 @@ plot.statRes <- function(x,
 #' @param x A statRes object.
 #' @param test character string indicating the type of test run.
 #'
+#' @return A data frame with the sample IDs and significance flags from a statistical test.
+#' 
 prep_flags <- function(x, test) {
   if (test == "anova") {
     # Assemble a data frame with the sample IDs and anova flags.

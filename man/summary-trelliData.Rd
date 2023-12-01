@@ -13,6 +13,9 @@ functions}
 
 \item{...}{further arguments passed to or from other methods.}
 }
+\value{
+A data.frame containing panel plot options for this trelliData object.
+}
 \description{
 Summarizes potential plotting options for a trelliData object
 }
