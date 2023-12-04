@@ -94,6 +94,7 @@ trelli_panel_by(trelliData = trelliData4, panel = "RazorProtein") \%>\%
                             test_example = 1:10,
                             path = tempdir())
 
+\dontshow{closeAllConnections()}
 }
 \dontshow{\}) # examplesIf}
 }

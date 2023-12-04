@@ -100,6 +100,7 @@ trelli_panel_by(trelliData = trelliData4, panel = "RazorProtein") \%>\%
                             cognostics = c("biomolecule count", "proportion significant"),
                             path = tempdir())
 
+\dontshow{closeAllConnections()}
 }
 \dontshow{\}) # examplesIf}
 }

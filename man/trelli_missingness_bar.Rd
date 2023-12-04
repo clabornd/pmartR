@@ -131,7 +131,8 @@ trelli_panel_by(trelliData = trelliData2, panel = "Peptide") \%>\%
      cognostics = "observed count", proportion = FALSE,
      path = tempdir()
    )
-   
+
+\dontshow{closeAllConnections()}
 }
 \dontshow{\}) # examplesIf}
 }

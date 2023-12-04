@@ -113,7 +113,8 @@ trelli_panel_by(trelliData = trelliData1, panel = "Peptide") \%>\%
    trelli_abundance_histogram(test_mode = TRUE, test_example = 1:10, 
      ggplot_params = c("ylab('')", "xlab('Abundance')"), interactive = TRUE,
      cognostics = c("mean abundance", "median abundance"), path = tempdir())  
-   
+ 
+\dontshow{closeAllConnections()}
 }
 \dontshow{\}) # examplesIf}
 }

@@ -100,8 +100,9 @@ trelli_panel_by(trelliData = trelliData4, panel = "RazorProtein") \%>\%
      ggplot_params = c("ylab('')", "xlab('')"), 
      interactive = TRUE, cognostics = c("biomolecule count"),
      path = tempdir()
-   )  
-   
+   )
+
+\dontshow{closeAllConnections()}
 }
 \dontshow{\}) # examplesIf}
 }

@@ -69,7 +69,6 @@ Specify a boxplot design and cognostics for the abundance
 \examples{
 \dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
-
 library(pmartRdata)
 
 trelliData1 <- as.trelliData.edata(e_data = pep_edata,
@@ -140,6 +139,7 @@ trelli_panel_by(trelliData = trelliData4, panel = "RazorProtein") \%>\%
     trelli_abundance_boxplot(
      interactive = TRUE, test_mode = TRUE, test_example = 1:10, path = tempdir())
 
+\dontshow{closeAllConnections()}
 }
 \dontshow{\}) # examplesIf}
 }

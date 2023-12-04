@@ -90,6 +90,7 @@ trelliData4 <- as.trelliData(omicsData = omicsData, statRes = statRes)
 trelli_panel_by(trelliData = trelliData3, panel = "Peptide") \%>\% 
   trelli_foldchange_bar(test_mode = TRUE, test_example = 1:10, path = tempdir())
 
+\dontshow{closeAllConnections()}
 }
 \dontshow{\}) # examplesIf}
 }

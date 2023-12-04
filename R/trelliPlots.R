@@ -258,7 +258,6 @@ trelli_builder <- function(toBuild, cognostics, plotFUN, cogFUN, path, name, rem
 #' 
 #' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \donttest{
-#' 
 #' library(pmartRdata)
 #' 
 #' trelliData1 <- as.trelliData.edata(e_data = pep_edata,
@@ -328,9 +327,10 @@ trelli_builder <- function(toBuild, cognostics, plotFUN, cogFUN, path, name, rem
 #' trelli_panel_by(trelliData = trelliData4, panel = "RazorProtein") %>% 
 #'     trelli_abundance_boxplot(
 #'      interactive = TRUE, test_mode = TRUE, test_example = 1:10, path = tempdir())
-#'
+#' 
+#' \dontshow{closeAllConnections()}
 #' }
-#'
+#' 
 #' @author David Degnan, Lisa Bramer
 #'
 #' @export
@@ -659,7 +659,8 @@ trelli_abundance_boxplot <- function(trelliData,
 #'    trelli_abundance_histogram(test_mode = TRUE, test_example = 1:10, 
 #'      ggplot_params = c("ylab('')", "xlab('Abundance')"), interactive = TRUE,
 #'      cognostics = c("mean abundance", "median abundance"), path = tempdir())  
-#'    
+#'  
+#' \dontshow{closeAllConnections()}
 #' }
 #'
 #' @author David Degnan, Lisa Bramer
@@ -852,8 +853,9 @@ trelli_abundance_histogram <- function(trelliData,
 #'      ggplot_params = c("ylab('')", "xlab('')"), 
 #'      interactive = TRUE, cognostics = c("biomolecule count"),
 #'      path = tempdir()
-#'    )  
-#'    
+#'    )
+#'
+#' \dontshow{closeAllConnections()}
 #' }
 #' @author David Degnan, Lisa Bramer
 #'
@@ -1113,7 +1115,8 @@ trelli_abundance_heatmap <- function(trelliData,
 #'      cognostics = "observed count", proportion = FALSE,
 #'      path = tempdir()
 #'    )
-#'    
+#'
+#' \dontshow{closeAllConnections()}
 #' }
 #'
 #' @author David Degnan, Lisa Bramer
@@ -1506,6 +1509,7 @@ determine_significance <- function(DF, p_value_thresh) {
 #' trelli_panel_by(trelliData = trelliData3, panel = "Peptide") %>% 
 #'   trelli_foldchange_bar(test_mode = TRUE, test_example = 1:10, path = tempdir())
 #'
+#' \dontshow{closeAllConnections()}
 #' }
 #'
 #' @author David Degnan, Lisa Bramer
@@ -1716,7 +1720,8 @@ trelli_foldchange_bar <- function(trelliData,
 #'                                            "sd fold change"),
 #'                             path = tempdir()
 #'                            )
-#'
+#' 
+#' \dontshow{closeAllConnections()}
 #' }
 #'
 #' @author David Degnan, Lisa Bramer
@@ -1944,7 +1949,8 @@ trelli_foldchange_boxplot <- function(trelliData,
 #'   trelli_foldchange_heatmap(test_mode = TRUE, 
 #'                             test_example = 1:10,
 #'                             path = tempdir())
-#'
+#' 
+#' \dontshow{closeAllConnections()}
 #' }
 #'
 #' @author David Degnan, Lisa Bramer
@@ -2170,7 +2176,8 @@ trelli_foldchange_heatmap <- function(trelliData,
 #'   trelli_foldchange_volcano(comparison = "all", test_mode = TRUE, test_example = 1:10,
 #'                             cognostics = c("biomolecule count", "proportion significant"),
 #'                             path = tempdir())
-#'
+#' 
+#' \dontshow{closeAllConnections()}
 #' }
 #'
 #' @author David Degnan, Lisa Bramer
