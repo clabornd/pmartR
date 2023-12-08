@@ -62,7 +62,7 @@ Specify a plot design and cognostics for the abundance histogram
 \examples{
 \dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
-
+if (interactive()) {
 library(pmartRdata)
 
 trelliData1 <- as.trelliData.edata(e_data = pep_edata,
@@ -115,6 +115,7 @@ trelli_panel_by(trelliData = trelliData1, panel = "Peptide") \%>\%
      cognostics = c("mean abundance", "median abundance"), path = tempdir())  
  
 \dontshow{closeAllConnections()}
+}
 }
 \dontshow{\}) # examplesIf}
 }
