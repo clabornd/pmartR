@@ -99,7 +99,7 @@ trelli_panel_by(trelliData = trelliData1, panel = "Peptide") \%>\%
 # Build the abundance histogram with an omicsData object. 
 # Generate trelliData in as.trelliData
 trelli_panel_by(trelliData = trelliData2, panel = "Peptide") \%>\% 
-   trelli_abundance_histogram(test_mode = TRUE, test_example = 1:10)
+   trelli_abundance_histogram(test_mode = TRUE, test_example = 1:10, path = tempdir())
     
 # Build the abundance histogram with an omicsData and statRes object. 
 # Generate trelliData in as.trelliData.
