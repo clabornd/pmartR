@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pmartR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.4.2</span>
       </span>
     </div>
 
@@ -86,7 +86,7 @@
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for corRes</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span></span>
-<span>  <span class="va">corRes_obj</span>,</span>
+<span>  <span class="va">x</span>,</span>
 <span>  omicsData <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  order_by <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  colorbar_lim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
@@ -105,13 +105,14 @@
 <span>  color_low <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  color_high <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  bw_theme <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  use_VizSampNames <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  use_VizSampNames <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>corRes_obj</dt>
+    <dl><dt>x</dt>
 <dd><p>An object of class "corRes" created via <code>cor_result</code></p></dd>
 
 
@@ -210,6 +211,10 @@ high values</p></dd>
 <dd><p>logical value. Indicates whether to use custom sample
 names. The default is FALSE.</p></dd>
 
+
+<dt>...</dt>
+<dd><p>further arguments passed to or from other methods.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
@@ -221,19 +226,16 @@ names. The default is FALSE.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/pmartR/pmartRdata" class="external-link">pmartRdata</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">mymetab</span> <span class="op">&lt;-</span> <span class="fu"><a href="edata_transform.html">edata_transform</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">metab_object</span>, data_scale <span class="op">=</span> <span class="st">"log2"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">mymetab</span> <span class="op">&lt;-</span> <span class="fu"><a href="group_designation.html">group_designation</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">mymetab</span>, main_effects <span class="op">=</span> <span class="st">"Phenotype"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">my_correlation</span> <span class="op">&lt;-</span> <span class="fu"><a href="cor_result.html">cor_result</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">mymetab</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">my_correlation</span>, omicsData <span class="op">=</span> <span class="va">mymetab</span>, order_by <span class="op">=</span> <span class="st">"Phenotype"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="plot-corRes-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="va">myseq_correlation</span> <span class="op">&lt;-</span> <span class="fu"><a href="cor_result.html">cor_result</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">rnaseq_object</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">myseq_correlation</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-in"><span></span></span>
-</code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/pmartR/pmartRdata" class="external-link">pmartRdata</a></span><span class="op">)</span></span>
+<span><span class="va">mymetab</span> <span class="op">&lt;-</span> <span class="fu"><a href="edata_transform.html">edata_transform</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">metab_object</span>, data_scale <span class="op">=</span> <span class="st">"log2"</span><span class="op">)</span></span>
+<span><span class="va">mymetab</span> <span class="op">&lt;-</span> <span class="fu"><a href="group_designation.html">group_designation</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">mymetab</span>, main_effects <span class="op">=</span> <span class="st">"Phenotype"</span><span class="op">)</span></span>
+<span><span class="va">my_correlation</span> <span class="op">&lt;-</span> <span class="fu"><a href="cor_result.html">cor_result</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">mymetab</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">my_correlation</span>, omicsData <span class="op">=</span> <span class="va">mymetab</span>, order_by <span class="op">=</span> <span class="st">"Phenotype"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># \donttest{</span></span>
+<span><span class="va">myseq_correlation</span> <span class="op">&lt;-</span> <span class="fu"><a href="cor_result.html">cor_result</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">rnaseq_object</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">myseq_correlation</span><span class="op">)</span></span>
+<span><span class="co"># }</span></span></code></pre></div>
     </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -243,7 +245,7 @@ names. The default is FALSE.</p></dd>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by Lisa Bramer, Kelly Stratton.</p>
+  <p></p><p>Developed by Lisa Bramer, Kelly Stratton, Daniel Claborne.</p>
 </div>
 
 <div class="pkgdown">

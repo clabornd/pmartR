@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pmartR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.4.2</span>
       </span>
     </div>
 
@@ -90,16 +90,16 @@
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>omicsData</dt>
-<dd><p>an object of the class 'pepData', 'proData', 'metabData', 
-'lipidData', or 'nmrData', created by <code><a href="as.pepData.html">as.pepData</a></code>, 
-<code><a href="as.proData.html">as.proData</a></code>, <code><a href="as.metabData.html">as.metabData</a></code>, 
-<code><a href="as.lipidData.html">as.lipidData</a></code>, or <code><a href="as.nmrData.html">as.nmrData</a></code>, respectively. The 
-function <code><a href="group_designation.html">group_designation</a></code> must have been run on omicsData to 
+<dd><p>an object of the class 'pepData', 'proData', 'metabData',
+'lipidData', or 'nmrData', created by <code><a href="as.pepData.html">as.pepData</a></code>,
+<code><a href="as.proData.html">as.proData</a></code>, <code><a href="as.metabData.html">as.metabData</a></code>,
+<code><a href="as.lipidData.html">as.lipidData</a></code>, or <code><a href="as.nmrData.html">as.nmrData</a></code>, respectively. The
+function <code><a href="group_designation.html">group_designation</a></code> must have been run on omicsData to
 use several of the subset functions (i.e. rip and ppp_rip).</p></dd>
 
 
 <dt>method</dt>
-<dd><p>character string specifying which variant of the cyclic loess 
+<dd><p>character string specifying which variant of the cyclic loess
 method to use. Options are "fast" (default), "affy", or "pairs"</p></dd>
 
 
@@ -111,39 +111,37 @@ method to use. Options are "fast" (default), "affy", or "pairs"</p></dd>
     <h2>Value</h2>
     
 
-<p>The normalized data is returned in an object of the appropriate S3 
-class (e.g. pepData), on the same scale as omicsData (e.g. if omicsData 
-contains log2 transformed data, the normalization will be performed on the 
-non-log2 scale and then re-scaled after normalization to be returned on the 
+<p>The normalized data is returned in an object of the appropriate S3
+class (e.g. pepData), on the same scale as omicsData (e.g. if omicsData
+contains log2 transformed data, the normalization will be performed on the
+non-log2 scale and then re-scaled after normalization to be returned on the
 log2 scale).</p>
     </div>
     <div id="details">
     <h2>Details</h2>
-    <p>A wrapper for the normalizeCyclicLoess function from the limma 
+    <p>A wrapper for the normalizeCyclicLoess function from the limma
 package.</p>
     </div>
     <div id="references">
     <h2>References</h2>
-    <p>Bolstad, B. M., Irizarry R. A., Astrand, M., and Speed, T. P. 
-(2003). <em>A comparison of normalization methods for high density 
-oligonucleotide array data based on bias and variance.</em> Bioinformatics 19, 
+    <p>Bolstad, B. M., Irizarry R. A., Astrand, M., and Speed, T. P.
+(2003). <em>A comparison of normalization methods for high density
+oligonucleotide array data based on bias and variance.</em> Bioinformatics 19,
 185-193.</p>
-<p>Ballman, KV Grill, DE, Oberg, AL and Therneau, TM (2004). 
-<em>Faster cyclic loess: normalizing RNA arrays via linear models.</em> 
+<p>Ballman, KV Grill, DE, Oberg, AL and Therneau, TM (2004).
+<em>Faster cyclic loess: normalizing RNA arrays via linear models.</em>
 Bioinformatics 20, 2778-2786.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
-    <div class="dont-index"><p><code>normalizeCyclicLoess</code> in the <code>limma</code> package</p></div>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/pkg/limma/man/normalizeCyclicLoess.html" class="external-link">normalizeCyclicLoess</a></code> in the <code>limma</code> package</p></div>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/pmartR/pmartRdata" class="external-link">pmartRdata</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">mypep</span> <span class="op">&lt;-</span> <span class="fu"><a href="edata_transform.html">edata_transform</a></span><span class="op">(</span><span class="va">pep_object</span>, <span class="st">"log2"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">normalize_loess</span><span class="op">(</span><span class="va">mypep</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-</code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/pmartR/pmartRdata" class="external-link">pmartRdata</a></span><span class="op">)</span></span>
+<span><span class="va">mypep</span> <span class="op">&lt;-</span> <span class="fu"><a href="edata_transform.html">edata_transform</a></span><span class="op">(</span><span class="va">pep_object</span>, <span class="st">"log2"</span><span class="op">)</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">normalize_loess</span><span class="op">(</span><span class="va">mypep</span><span class="op">)</span></span></code></pre></div>
     </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -153,7 +151,7 @@ Bioinformatics 20, 2778-2786.</p>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by Lisa Bramer, Kelly Stratton.</p>
+  <p></p><p>Developed by Lisa Bramer, Kelly Stratton, Daniel Claborne.</p>
 </div>
 
 <div class="pkgdown">

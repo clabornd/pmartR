@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pmartR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.4.2</span>
       </span>
     </div>
 
@@ -86,9 +86,11 @@
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for naRes</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span></span>
-<span>  <span class="va">naRes_obj</span>,</span>
+<span>  <span class="va">x</span>,</span>
 <span>  <span class="va">omicsData</span>,</span>
 <span>  plot_type <span class="op">=</span> <span class="st">"bar"</span>,</span>
+<span>  nonmissing <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  proportion <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  order_by <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  color_by <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  interactive <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -112,13 +114,14 @@
 <span>  palette <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  display_count <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  coordinate_flip <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  use_VizSampNames <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  use_VizSampNames <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>naRes_obj</dt>
+    <dl><dt>x</dt>
 <dd><p>list of two data frames, one containing the number of
 missing values by sample, and the other containing missing values by
 molecule</p></dd>
@@ -136,14 +139,29 @@ molecule</p></dd>
 The two options are 'bar' or 'scatter'.</p></dd>
 
 
+<dt>nonmissing</dt>
+<dd><p>logical value. When FALSE, plots missing values. When TRUE,
+plots non-missing values.</p></dd>
+
+
+<dt>proportion</dt>
+<dd><p>logical value. When TRUE, plots the proportion of missing 
+(or non-missing if <code>nonmissing</code> is TRUE) to the total number of 
+values. Only works with a plot type of 'bar'.</p></dd>
+
+
 <dt>order_by</dt>
 <dd><p>A character string specifying a column in f_data by which to
-order the samples.</p></dd>
+order the samples. Specifying "Group" will use the "Group" column of the
+object's <code>group_DF</code> attribute to order the samples. Only works with a 
+plot type of 'bar'.</p></dd>
 
 
 <dt>color_by</dt>
 <dd><p>A character string specifying a column in f_data by which to
-color the bars or the points depending on the <code>plot_type</code>.</p></dd>
+color the bars or the points depending on the <code>plot_type</code>. Specifying
+"Group" will use the "Group" column of the object's <code>group_DF</code>
+attribute to color the samples. Only works with a plot type of 'bar'.</p></dd>
 
 
 <dt>interactive</dt>
@@ -254,6 +272,10 @@ be flipped. The default is FALSE.</p></dd>
 <dd><p>logical value. Indicates whether to use custom sample
 names. The default is FALSE.</p></dd>
 
+
+<dt>...</dt>
+<dd><p>further arguments passed to or from other methods.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
@@ -275,19 +297,16 @@ names. The default is FALSE.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/pmartR/pmartRdata" class="external-link">pmartRdata</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">mylipid</span> <span class="op">&lt;-</span> <span class="fu"><a href="group_designation.html">group_designation</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">lipid_neg_object</span>, main_effects <span class="op">=</span> <span class="st">"Virus"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="missingval_result.html">missingval_result</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">mylipid</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span>naRes_obj <span class="op">=</span> <span class="va">result</span>, omicsData <span class="op">=</span> <span class="va">mylipid</span>, plot_type <span class="op">=</span> <span class="st">"bar"</span>, x_lab_angle <span class="op">=</span> <span class="fl">50</span>, order_by <span class="op">=</span> <span class="st">"Virus"</span>, color_by <span class="op">=</span> <span class="st">"Virus"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="plot-naRes-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span>naRes_obj <span class="op">=</span> <span class="va">result</span>, omicsData <span class="op">=</span> <span class="va">mylipid</span>, plot_type <span class="op">=</span> <span class="st">"scatter"</span>, x_lab_angle <span class="op">=</span> <span class="fl">50</span>, color_by <span class="op">=</span> <span class="st">"Virus"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="plot-naRes-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="missingval_result.html">missingval_result</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">rnaseq_object</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span>naRes_obj <span class="op">=</span> <span class="va">result</span>, omicsData <span class="op">=</span> <span class="va">rnaseq_object</span>, plot_type <span class="op">=</span> <span class="st">"bar"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="plot-naRes-3.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
-</code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/pmartR/pmartRdata" class="external-link">pmartRdata</a></span><span class="op">)</span></span>
+<span><span class="va">mylipid</span> <span class="op">&lt;-</span> <span class="fu"><a href="group_designation.html">group_designation</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">lipid_neg_object</span>, main_effects <span class="op">=</span> <span class="st">"Virus"</span><span class="op">)</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="missingval_result.html">missingval_result</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">mylipid</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">result</span>, omicsData <span class="op">=</span> <span class="va">mylipid</span>, plot_type <span class="op">=</span> <span class="st">"bar"</span>,</span>
+<span>     x_lab_angle <span class="op">=</span> <span class="fl">50</span>, order_by <span class="op">=</span> <span class="st">"Virus"</span>, color_by <span class="op">=</span> <span class="st">"Virus"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">result</span>, omicsData <span class="op">=</span> <span class="va">mylipid</span>, plot_type <span class="op">=</span> <span class="st">"scatter"</span>,</span>
+<span>     x_lab_angle <span class="op">=</span> <span class="fl">50</span>, color_by <span class="op">=</span> <span class="st">"Virus"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="missingval_result.html">missingval_result</a></span><span class="op">(</span>omicsData <span class="op">=</span> <span class="va">rnaseq_object</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">result</span>, omicsData <span class="op">=</span> <span class="va">rnaseq_object</span>, plot_type <span class="op">=</span> <span class="st">"bar"</span><span class="op">)</span></span></code></pre></div>
     </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -297,7 +316,7 @@ names. The default is FALSE.</p></dd>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by Lisa Bramer, Kelly Stratton.</p>
+  <p></p><p>Developed by Lisa Bramer, Kelly Stratton, Daniel Claborne.</p>
 </div>
 
 <div class="pkgdown">
