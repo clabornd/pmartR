@@ -64,13 +64,15 @@ function. Refer to calcNormFactors() in edgeR package.
 Requires the 'edgeR' and 'limma' packages to run.
 }
 \examples{
-\dontrun{
+\dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\donttest{
 library(pmartRdata)
 myseqData <- group_designation(omicsData = rnaseq_object, main_effects = "Virus")
 edger_results <- diffexp_seq(omicsData = myseqData, method = "edgeR")
 deseq_results <- diffexp_seq(omicsData = myseqData, method = "DESeq2")
 voom_results <- diffexp_seq(omicsData = myseqData, method = "voom")
 }
+\dontshow{\}) # examplesIf}
 }
 \references{
 Robinson MD, McCarthy DJ, Smyth GK (2010). “edgeR: a Bioconductor package

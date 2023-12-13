@@ -26,8 +26,8 @@
 #'   subset protein_sig_data for each unique protein and apply bpquant_mod to
 #'   each subset and store the results.
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
+#' \donttest{
 #' library(pmartRdata)
 #'
 #' mypepData <- group_designation(

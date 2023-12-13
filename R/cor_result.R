@@ -16,13 +16,13 @@
 #' @return An \eqn{n \times n} matrix of class corRes giving the correlation
 #'   between samples.
 #'
-#' @examples
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #'
 #' mymetab <- edata_transform(omicsData = metab_object, data_scale = "log2")
 #' my_correlation <- cor_result(omicsData = mymetab)
 #'
-#' \dontrun{
+#' \donttest{
 #' myseq_correlation <- cor_result(omicsData = rnaseq_object)
 #' }
 #'

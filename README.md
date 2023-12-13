@@ -1,7 +1,7 @@
 # pmartR
 <!-- badges: start -->
 [![DOI](https://zenodo.org/badge/69275428.svg)](https://zenodo.org/badge/latestdoi/69275428)
-[![R-CMD-check](https://github.com/pmartR/pmartR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pmartR/pmartR/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/pmartR/pmartR/actions/workflows/R-CMD-check-CRAN.yaml/badge.svg)](https://github.com/pmartR/pmartR/actions/workflows/R-CMD-check-CRAN.yaml)
 <!-- badges: end -->
 
 This R package provides functionality for quality control processing, statistical analysis and visualization of mass spectrometry (MS) omics data, in particular proteomic (either at the peptide or the protein level; isobaric labeled or unlabled), lipidomic, and metabolomic data. This includes data transformation, specification of groups that are to be compared against each other, filtering of feature and/or samples, data normalization, data summarization (correlation, PCA), and statistical comparisons of groups of interest (ANOVA and/or independence of missing data tests). Example data to be used with this packages can be found in [pmartRdata](https://github.com/pmartR/pmartRdata).
@@ -79,3 +79,26 @@ Degnan, D. J.; Stratton, K. G.; Richardson, R.; Claborne, D.; Martin, E. A.; Joh
   publisher={ACS Publications}
 }) 
 ```
+
+## Disclaimer:
+
+This material was prepared as an account of work sponsored by an agency of the
+United States Government.  Neither the United States Government nor the United
+States Department of Energy, nor Battelle, nor any of their employees, nor any
+jurisdiction or organization that has cooperated in the development of these
+materials, makes any warranty, express or implied, or assumes any legal
+liability or responsibility for the accuracy, completeness, or usefulness or
+any information, apparatus, product, software, or process disclosed, or
+represents that its use would not infringe privately owned rights.
+
+Reference herein to any specific commercial product, process, or service by
+trade name, trademark, manufacturer, or otherwise does not necessarily
+constitute or imply its endorsement, recommendation, or favoring by the United
+States Government or any agency thereof, or Battelle Memorial Institute. The
+views and opinions of authors expressed herein do not necessarily state or
+reflect those of the United States Government or any agency thereof.
+
+      PACIFIC NORTHWEST NATIONAL LABORATORY
+      operated by BATTELLE for the
+      UNITED STATES DEPARTMENT OF ENERGY
+      under Contract DE-AC05-76RL01830

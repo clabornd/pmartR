@@ -5,11 +5,7 @@
 #' @param edata Must be a dataframe. Required.
 #'
 #' @return A boolean where TRUE means the file is an acceptable edata file.
-#' @examples
-#' \dontrun{
-#'
-#' .is_edata(pmartRdata::lipid_edata)
-#' }
+#' 
 .is_edata <- function(edata) {
   # If edata is NULL, return FALSE
   if (is.null(edata) || is.data.frame(edata) == FALSE) {
@@ -84,7 +80,10 @@
 #' @param force_normalization A logical indicator to force normalization that is
 #'   not required for both isobaric protein and NMR data
 #'
-#' @examples
+#' @return An object of class 'trelliData' containing the raw data.
+#'  To be passed to trelliscope building functions.  
+#' 
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #' 
 #' # Simple example 
@@ -234,8 +233,11 @@ as.trelliData.edata <- function(e_data,
 #' @param statRes statRes an object of the class 'statRes', created by
 #'   \code{\link{imd_anova}}
 #'
-#' @examples
-#' \dontrun{
+#' @return An object of class 'trelliData' containing the raw data and optionally, statRes.  
+#'  To be passed to trelliscope building functions.
+#' 
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
+#' \donttest{
 #' library(pmartRdata)
 #' 
 #' # Transform the data
@@ -467,12 +469,41 @@ as.trelliData <- function(omicsData = NULL, statRes = NULL) {
 #' @param trelliData A trelliscope data object made by as.trelliData or as.trelliData.edata. Required.
 #' @param panel The name of a column in trelliData to panel the data by. Required.
 #'
-#' @examples
-#' \dontrun{
+#' @return A trelliData object with attributes "panel_by_omics" or "panel_by_stat" to determine 
+#' which columns to divide the data by.
 #' 
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
+#' \donttest{
+#' library(pmartRdata)
 #' 
+#' trelliData1 <- as.trelliData.edata(e_data = pep_edata,
+#'                                    edata_cname = "Peptide",
+#'                                    omics_type = "pepData")
+#' # Transform the data
+#' omicsData <- edata_transform(omicsData = pep_object, data_scale = "log2")
+#' 
+#' # Group the data by condition
+#' omicsData <- group_designation(omicsData = omicsData, main_effects = c("Phenotype"))
+#'
+#' # Apply the IMD ANOVA filter
+#' imdanova_Filt <- imdanova_filter(omicsData = omicsData)
+#' omicsData <- applyFilt(filter_object = imdanova_Filt, omicsData = omicsData,
+#'                        min_nonmiss_anova = 2)
+#'
+#' # Normalize my pepData
+#' omicsData <- normalize_global(omicsData, "subset_fn" = "all", "norm_fn" = "median",
+#'                              "apply_norm" = TRUE, "backtransform" = TRUE)
+#'
+#' # Implement the IMD ANOVA method and compute all pairwise comparisons 
+#' # (i.e. leave the `comparisons` argument NULL)
+#' statRes <- imd_anova(omicsData = omicsData, test_method = 'combined')
+#'
+#' # Generate the trelliData object
+#' trelliData2 <- as.trelliData(omicsData = omicsData)
+#' trelliData3 <- as.trelliData(statRes = statRes)
+#' trelliData4 <- as.trelliData(omicsData = omicsData, statRes = statRes)
+#'
 #' ## "panel_by" with an edata file. 
-#' ## Generate trelliData1 using the example code for as.trelliData.edata
 #' trelli_panel_by(trelliData = trelliData1, panel = "Peptide")
 #' trelli_panel_by(trelliData = trelliData1, panel = "Sample")
 #' 
@@ -612,21 +643,52 @@ trelli_panel_by <- function(trelliData, panel) {
 #'    at which to keep plots. Default is 0.05. Required.
 #' @param comparison The specific comparison to filter significant values to. Can
 #'    be null. See attr(statRes, "comparisons") for the available options. Optional.
-#'    
-#' @examples
-#' \dontrun{
+#' 
+#' @return A paneled trelliData object with only plots corresponding to significant
+#' p-values from a statistical test.
+#' 
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
+#' \donttest{
+#' library(pmartRdata)
+#' 
+#' # Transform the data
+#' omicsData <- edata_transform(omicsData = pep_object, data_scale = "log2")
+#' 
+#' # Group the data by condition
+#' omicsData <- group_designation(omicsData = omicsData, main_effects = c("Phenotype"))
+#'
+#' # Apply the IMD ANOVA filter
+#' imdanova_Filt <- imdanova_filter(omicsData = omicsData)
+#' omicsData <- applyFilt(filter_object = imdanova_Filt, omicsData = omicsData,
+#'                        min_nonmiss_anova = 2)
+#'
+#' # Normalize my pepData
+#' omicsData <- normalize_global(omicsData, "subset_fn" = "all", "norm_fn" = "median",
+#'                              "apply_norm" = TRUE, "backtransform" = TRUE)
+#'
+#' # Implement the IMD ANOVA method and compute all pairwise comparisons 
+#' # (i.e. leave the `comparisons` argument NULL)
+#' statRes <- imd_anova(omicsData = omicsData, test_method = 'combined')
+#'
+#' # Generate the trelliData object
+#' trelliData3 <- as.trelliData(statRes = statRes)
+#' trelliData4 <- as.trelliData(omicsData = omicsData, statRes = statRes)
 #' 
 #' # Filter a trelliData object with only statistics results, while not caring about a comparison
 #' trelli_pvalue_filter(trelliData3, p_value_test = "anova", p_value_thresh = 0.1)
 #' 
 #' # Filter a trelliData object with only statistics results, while caring about a specific comparison
-#' trelli_pvalue_filter(trelliData3, p_value_test = "anova", p_value_thresh = 0.1, comparison = "Phenotype3_vs_Phenotype2")
+#' trelli_pvalue_filter(
+#'  trelliData3, p_value_test = "anova", p_value_thresh = 0.1, comparison = "Phenotype3_vs_Phenotype2")
 #' 
 #' # Filter both a omicsData and statRes object, while not caring about a specific comparison
 #' trelli_pvalue_filter(trelliData4, p_value_test = "anova", p_value_thresh = 0.001)
 #' 
 #' # Filter both a omicsData and statRes object, while caring about a specific comparison
-#' trelli_pvalue_filter(trelliData4, p_value_test = "gtest", p_value_thresh = 0.25, comparison = "Phenotype3_vs_Phenotype2")
+#' trelli_pvalue_filter(
+#'  trelliData4, p_value_test = "gtest", p_value_thresh = 0.25, 
+#'  comparison = "Phenotype3_vs_Phenotype2"
+#' )
 #' 
 #' 
 #' }

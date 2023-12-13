@@ -51,6 +51,13 @@ regarding reference pool samples. If using this argument, the
 'refpool_cname' argument must also be specified; in this case,
 'channel_cname' and 'refpool_channel' should not be specified.}
 }
+\value{
+If apply_norm = TRUE, an object of class 'isobaricpepData', normalized to reference pool,
+ and with the attribute 'isobaric_info' updated to include information about
+ the reference pool samples and the normalization procedure.  Otherwise an
+ object of class 'isobaricnormRes' containing similar information about the 
+ normalization process
+}
 \description{
 Examine reference pool samples and apply normalization of study samples to
 their corresponding reference pool sample
@@ -76,6 +83,7 @@ There are two ways to specify the information needed for identifying
   was run on.
 }
 \examples{
+\dontshow{if (identical(tolower(Sys.getenv("NOT_CRAN")), "true") & requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 library(pmartRdata)
 
 myiso <- edata_transform(isobaric_object, "log2")
@@ -98,5 +106,5 @@ myiso_norm <- normalize_isobaric(
   refpool_cname = "Virus",
   refpool_notation = "Pool"
 )
-
+\dontshow{\}) # examplesIf}
 }

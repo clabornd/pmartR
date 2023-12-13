@@ -31,8 +31,8 @@
 #'   R-based processing and visualisation of raw mass spectrometry data.”
 #'   bioRxiv.
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE) && requireNamespace("MSnbase", quietly = TRUE)
+#'
 #' library(MSnbase)
 #' data("msnset")
 #' result = MSnSet2pepData(msnset,
@@ -41,9 +41,9 @@
 #'   fdata_cname = "SampleID",
 #'   emeta_cname = "UniqueID"
 #' )
-#' }
 #'
-#' @export
+#'
+#' @noRd
 #'
 MSnSet2pepData <- function(msnset_object, data_scale, edata_cname = "UniqueID",
                            fdata_cname = "SampleID", emeta_cname = "UniqueID",

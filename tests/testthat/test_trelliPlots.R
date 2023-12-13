@@ -1,7 +1,7 @@
 context("trelliscope plotting functions")
 
 test_that("trelliPlots check the correct inputs", {
-  
+  testthat::skip_on_cran()
   # Quick trelliscope function check for future changes
   # file_coverage(c("./R/as.trelliData.R", "./R/summary_trelliData.R", "./R/trelliPlots.R"), 
   #               c("./tests/testthat/test_as_trelliData_edata.R", "./tests/testthat/test_as_trelliData.R", "./tests/testthat/test_as_trelliData_summary.R", "./tests/testthat/test_trelliPlots.R")) %>% 
@@ -149,7 +149,7 @@ test_that("trelliPlots check the correct inputs", {
   expect_true(inherits(abun_boxplot, "ggplot"))
 
   # Generate a tests folder
-  testFolder <- file.path(.getDownloadsFolder(), "/Trelli_Tests")
+  testFolder <- file.path(tempdir(), "/Trelli_Tests")
 
   # If the folder exists, remove it
   if (file.exists(testFolder)) {

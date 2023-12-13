@@ -7,7 +7,7 @@
 #'
 #' @return a summary table or list for the pmartR results object
 #'
-#' @examples
+#' @examplesIf identical(tolower(Sys.getenv("NOT_CRAN")), "true") & requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #' mypep <- group_designation(omicsData = pep_object, main_effects = "Phenotype")
 #' mypep <- edata_transform(omicsData = mypep, data_scale = "log2")
@@ -15,7 +15,7 @@
 #' norm_result <- normalize_global(omicsData = mypep, norm_fn = "median", subset_fn = "all")
 #' summary(norm_result)
 #'
-#' \dontrun{
+#' \donttest{
 #' spans_results <- spans_procedure(omicsData = mypep)
 #' summary(spans_results)
 #' }

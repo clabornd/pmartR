@@ -41,7 +41,8 @@ The result of this function can be used as one the \code{isoformRes}
   each subset and store the results.
 }
 \examples{
-\dontrun{
+\dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\donttest{
 library(pmartRdata)
 
 mypepData <- group_designation(
@@ -66,5 +67,5 @@ imd_anova_res <- imd_anova(
 
 result = bpquant(statRes = imd_anova_res, pepData = mypepData)
 }
-
+\dontshow{\}) # examplesIf}
 }

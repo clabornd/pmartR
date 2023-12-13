@@ -27,15 +27,16 @@ The pairwise correlations between samples are calculated based on
   is used and data must be log transformed. See \code{\link{cor}} for further details.
 }
 \examples{
+\dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 library(pmartRdata)
 
 mymetab <- edata_transform(omicsData = metab_object, data_scale = "log2")
 my_correlation <- cor_result(omicsData = mymetab)
 
-\dontrun{
+\donttest{
 myseq_correlation <- cor_result(omicsData = rnaseq_object)
 }
-
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link{edata_transform}}

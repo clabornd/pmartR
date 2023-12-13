@@ -36,14 +36,14 @@
 #'   function leverages code from \code{\link[pcaMethods]{pca}} and
 #'   \code{\link[glmpca]{glmpca}} .
 #'
-#' @examples
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #'
 #' mylipid <- edata_transform(omicsData = lipid_neg_object, data_scale = "log2")
 #' mylipid <- group_designation(omicsData = mylipid, main_effects = "Virus")
 #' pca_lipids <- dim_reduction(omicsData = mylipid)
 #'
-#' \dontrun{
+#' \donttest{
 #' myseq <- group_designation(omicsData = rnaseq_object, main_effects = "Virus")
 #' pca_seq <- dim_reduction(omicsData = myseq)
 #' }

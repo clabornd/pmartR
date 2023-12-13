@@ -15,9 +15,3 @@ A boolean where TRUE means the file is an acceptable edata file.
 \description{
 Test if a file is an edata file
 }
-\examples{
-\dontrun{
-
-.is_edata(pmartRdata::lipid_edata)
-}
-}

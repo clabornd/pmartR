@@ -70,7 +70,8 @@ ggplot2 plot object if interactive is FALSE, or plotly plot object if
 For plotting an S3 object of type 'SPANSRes'
 }
 \examples{
-\dontrun{
+\dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\donttest{
 library(pmartRdata)
 data(pep_object)
 mypep <- edata_transform(omicsData = pep_object, data_scale = "log2")
@@ -78,4 +79,5 @@ mypep <- group_designation(omicsData = mypep, main_effects = "Phenotype")
 myspans <- spans_procedure(omicsData = mypep)
 plot(myspans)
 }
+\dontshow{\}) # examplesIf}
 }

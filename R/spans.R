@@ -125,8 +125,8 @@
 #'   first step of SPANS.
 #'
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
+#' \donttest{
 #' library(pmartRdata)
 #'
 #' pep_object <- edata_transform(omicsData = pep_object, data_scale = "log2")
@@ -694,8 +694,8 @@ normalize_global_basic <- function(edata, norm_fn) {
 #'   subset and normalization methods, and the parameters used for the subset
 #'   method. \cr
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
+#' \donttest{
 #' library(pmartRdata)
 #'
 #' # data must be log transformed and grouped

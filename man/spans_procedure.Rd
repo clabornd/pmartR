@@ -169,7 +169,8 @@ Below are details for specifying function and parameter options.
 }
 
 \examples{
-\dontrun{
+\dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\donttest{
 library(pmartRdata)
 
 pep_object <- edata_transform(omicsData = pep_object, data_scale = "log2")
@@ -194,7 +195,7 @@ spans_res <- spans_procedure(omicsData = pep_object,
                              params = list(rip = list(0.3, 0.4), 
                              ppp_rip = list(c(0.15, 0.5), c(0.25, 0.5))))
 }
-
+\dontshow{\}) # examplesIf}
 }
 \references{
 Webb-Robertson BJ, Matzke MM, Jacobs JM, Pounds JG, Waters KM. A

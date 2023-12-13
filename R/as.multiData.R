@@ -31,7 +31,7 @@
 #' @seealso \code{\link{combine_lipidData}} if you want to combine lipidData
 #'  objects before providing them to as.multiData.
 #'
-#' @examples
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #'
 #' library(pmartRdata)
 #'
@@ -63,10 +63,10 @@
 as.multiData <-
   function(...,
            f_meta = NULL,
-           sample_intersect = F,
+           sample_intersect = FALSE,
            match_samples = TRUE,
-           keep_sample_info = F,
-           auto_fmeta = F) {
+           keep_sample_info = FALSE,
+           auto_fmeta = FALSE) {
     omicsData_objects <- list(...)
 
     if (length(omicsData_objects) < 2) stop("Must provide at least two datasets.")
@@ -310,7 +310,7 @@ as.multiData <-
 
 #' Check that the f_meta file contains a column aligned to each omicsData objects
 #'
-#' @param omicsDataObjects A list of omicsdata objects containing sample
+#' @param omicsData_objects A list of omicsdata objects containing sample
 #' information matching that in f_meta
 #' @param f_meta passed from \code{as.multiData}
 #'

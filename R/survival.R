@@ -32,7 +32,7 @@
 #' @param omicsData A pmartR data object of any class, which has a `group_df` attribute that is usually created by the `group_designation()` function
 #' @return if fitted survival analysis object is returned
 #'
-#' @examples
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \dontrun{
 #' library(MSomicsSTAT)
 #' library(OvarianPepdataBP)
@@ -53,7 +53,7 @@
 #' plot(sfit, col = c(1, 2))
 #' }
 #'
-# Function to fit the survival model
+#' @export
 fit_surv <- function(omicsData) {
   if (!requireNamespace("survival", quietly = TRUE)) {
     stop("Please install the 'survival' package.")
@@ -99,7 +99,7 @@ fit_surv <- function(omicsData) {
 #'
 #' @return a Kaplan-Meier curve
 #'
-#' @examples
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \dontrun{
 #' library(MSomicsSTAT)
 #' library(OvarianPepdataBP)
@@ -115,6 +115,9 @@ fit_surv <- function(omicsData) {
 #' )
 #' plot_km(omicsData = tcga_ovarian_pepdata_bp)
 #' }
+#'
+#' @export
+#'
 plot_km <- function(omicsData) {
   sfit <- fit_surv(omicsData)
 
@@ -132,7 +135,7 @@ plot_km <- function(omicsData) {
 #' @param ... extra arguments passed to regexpr if pattern is specified
 #' @return if `percent` is provided then the time at which that probability of death is returned; else, the summary of the `survival` object is returned
 #'
-#' @examples
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' \dontrun{
 #' library(OvarianPepdataBP)
 #' attr(tcga_ovarian_pepdata_bp, "survDF") <- list(t_death = "survival_time",
@@ -143,6 +146,8 @@ plot_km <- function(omicsData) {
 #' # Percent is provided so corresponding time point is returned
 #' summary_km(tcga_ovarian_pepdata_bp, .4)
 #' }
+#'
+#' @export
 #'
 summary_km <- function(omicsData, percent = NULL, ...) {
   # Summary object

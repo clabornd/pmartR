@@ -41,8 +41,8 @@
 #'   Proteoform Modeling Improves Protein Quantification of Global Proteomic
 #'   Measurements}. Molecular & Cellular Proteomics.: MCP, 13(12), 3639-3646.
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
+#' \donttest{
 #' library(pmartRdata)
 #'
 #' mypepData <- group_designation(omicsData = pep_object, main_effects = c("Phenotype"))
@@ -62,7 +62,7 @@
 #'
 #' # case where isoformRes is provided:
 #' # results2 = protein_quant(pepData = mypepData, method = 'rollup',
-#'                            combine_fn = 'mean', isoformRes = isoformRes)
+#' #                           combine_fn = 'mean', isoformRes = isoformRes)
 #' }
 #'
 #' @rdname protein_quant

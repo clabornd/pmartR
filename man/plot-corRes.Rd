@@ -99,15 +99,16 @@ ggplot2 plot object if interactive is FALSE, or plotly plot object if
 For plotting an S3 object of type 'corRes'
 }
 \examples{
+\dontshow{if (requireNamespace("pmartRdata", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 library(pmartRdata)
 mymetab <- edata_transform(omicsData = metab_object, data_scale = "log2")
 mymetab <- group_designation(omicsData = mymetab, main_effects = "Phenotype")
 my_correlation <- cor_result(omicsData = mymetab)
 plot(my_correlation, omicsData = mymetab, order_by = "Phenotype")
 
-\dontrun{
+\donttest{
 myseq_correlation <- cor_result(omicsData = rnaseq_object)
 plot(myseq_correlation)
 }
-
+\dontshow{\}) # examplesIf}
 }

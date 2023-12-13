@@ -14,7 +14,7 @@
 #'   \code{use_groups = TRUE} or \code{use_batches = TRUE} were specified, the
 #'   numbers reported by the summary are based on groups and/or batches.
 #'
-#' @examples
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #' myfilter <- molecule_filter(omicsData = pep_object)
 #' summary(myfilter)
@@ -85,6 +85,8 @@ summary.moleculeFilt <- function(object, min_num = NULL, ...) {
 #' @param x the moleculeFilt summary to print
 #' @param ... further arguments passed to or from other methods
 #'
+#' @return No return value, prints details about x
+#' 
 #' @export
 #' @name print.moleculeFilterSummary
 
@@ -133,7 +135,7 @@ print.moleculeFilterSummary <- function(x, ...) {
 #'   biomolecules with non-zero observations per sample), and the proportion of
 #'   non-zero observations over the total number of biomolecules.
 #'
-#' @examples
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #' myfilter <- RNA_filter(omicsData = rnaseq_object)
 #' summary(myfilter)
@@ -248,6 +250,8 @@ summary.RNAFilt <- function(object,
 #' @param x the RNAFilt summary to print
 #' @param ... further arguments passed to or from other methods
 #'
+#' @return No return value, prints details about x
+#' 
 #' @export
 #' @name print.RNAFiltSummary
 print.RNAFiltSummary <- function(x, ...) {
@@ -309,8 +313,8 @@ print.RNAFiltSummary <- function(x, ...) {
 #' non-zero values. If a min_count is provided the biomolecules that would be
 #' filtered at this threshold are reported.
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
+#' \donttest{
 #' library(pmartRdata)
 #' myfilt <- total_count_filter(omicsData = rnaseq_object)
 #' summary(myfilt, min_count = 15)
@@ -367,6 +371,8 @@ summary.totalCountFilt <- function(object, min_count = NULL, ...) {
 #' @param x the Total Count filter summary to print
 #' @param ... further arguments passed to or from other methods
 #'
+#' @return No return value, prints details about x
+#' 
 #' @export
 #' @name print.totalCountFiltSummary
 #'
@@ -402,7 +408,7 @@ print.totalCountFiltSummary <- function(x, ...) {
 #'   and/or degen_peps is TRUE, the number of biomolecules to be filtered with
 #'   the specified threshold(s) are reported.
 #'
-#' @examples
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #' myfilt <- proteomics_filter(omicsData = pep_object)
 #' summary(myfilt, degen_peps = TRUE) # there are no degenerate peptides to filter out
@@ -519,6 +525,8 @@ summary.proteomicsFilt <- function(object, min_num_peps = NULL, degen_peps = FAL
 #' @param x the proteomics filter summary to print
 #' @param ... further arguments passed to or from other methods
 #'
+#' @return No return value, prints details about x
+#' 
 #' @export
 #' @name print.proteomicsFilterSummary
 #'
@@ -565,7 +573,7 @@ print.proteomicsFilterSummary <- function(x, ...) {
 #' @return If min_nonmiss_gtest or min_nonmiss_anova is specified, the number of
 #'   biomolecules to be filtered with the specified threshold are reported.
 #'
-#' @examples
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #' mypep <- group_designation(omicsData = pep_object, main_effects = "Phenotype")
 #' myfilt <- imdanova_filter(omicsData = mypep)
@@ -842,6 +850,8 @@ summary.imdanovaFilt <- function(object, min_nonmiss_anova = NULL,
 #' @param x the imdanova filter summary to print
 #' @param ... further arguments passed to or from other methods
 #'
+#' @return No return value, prints details about x
+#' 
 #' @export
 #' @name print.imdanovaFilterSummary
 #'
@@ -887,7 +897,7 @@ print.imdanovaFilterSummary <- function(x, ...) {
 #'   samples. If a p-value threshold is provided the samples that would be
 #'   filtered at this threshold are reported.
 #'
-#' @examples
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #' mymetab <- group_designation(omicsData = metab_object, main_effects = "Phenotype")
 #' mymetab <- edata_transform(omicsData = mymetab, data_scale = "log2")
@@ -977,6 +987,8 @@ summary.rmdFilt <- function(object, pvalue_threshold = NULL, ...) {
 #' @param x the RMD filter summary to print
 #' @param ... further arguments passed to or from other methods
 #'
+#' @return No return value, prints details about x
+#' 
 #' @export
 #' @name print.rmdFilterSummary
 #'
@@ -1010,7 +1022,7 @@ print.rmdFilterSummary <- function(x, ...) {
 #'   If a CV threshold is provided, the biomolecules that would be filtered
 #'   based on this threshold are reported.
 #'
-#' @examples
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #' mypep <- group_designation(omicsData = pep_object, main_effects = "Phenotype")
 #' to_filter <- cv_filter(omicsData = mypep, use_groups = TRUE)
@@ -1092,8 +1104,10 @@ summary.cvFilt <- function(object, cv_threshold = NULL, ...) {
 #' @param x the CV filter summary to print
 #' @param ... further arguments passed to or from other methods
 #'
+#' @return No return value, prints details about x
+#' 
 #' @export
-#' @name print.cvSummary
+#' @name print.cvFilterSummary
 #'
 print.cvFilterSummary <- function(x, ...) {
   object <- x
@@ -1132,7 +1146,7 @@ print.cvFilterSummary <- function(x, ...) {
 #' @return a summary of the items in e_data, f_data, and e_meta that will be
 #'   removed as a result of applying the custom filter.
 #'
-#' @examples
+#' @examplesIf requireNamespace("pmartRdata", quietly = TRUE)
 #' library(pmartRdata)
 #' to_filter <- custom_filter(omicsData = metab_object, e_data_remove = "fumaric acid",
 #'                            f_data_remove = "Sample_1_Phenotype2_B")
@@ -1298,6 +1312,8 @@ summary.customFilt <- function(object, ...) {
 #' @param x the custom filter summary to print
 #' @param ... further arguments passed to or from other methods
 #'
+#' @return No return value, prints details about x
+#' 
 #' @export
 #' @name print.customFilterSummary
 #'
